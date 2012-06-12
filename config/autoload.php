@@ -12,43 +12,23 @@
  * @var array
  */
 $GLOBALS ['autoload_paths'] = array (
-	UPS_BASE_PATH, 
-	UPS_BASE_PATH . '/inc', 
-	UPS_BASE_PATH . '/inc/pear',
 
 	BASE_PATH. "/lib/util/",
-	BASE_PATH. "/lib/1stdibs_shipping_api",
-	BASE_PATH. "/lib/1stdibs_shipping_api/om",
-	BASE_PATH. "/lib/1stdibs_shipping_api/om/fake",
 	BASE_PATH. "/lib/auth/",
-	BASE_PATH. "/lib/machine_learning/"
+	BASE_PATH. "/lib/om/",
+	//add new lib paths here
 );
 
-$ExternalItemsPath = BASE_PATH. "/lib/1stdibs_shipping_api/om/ExternalItems.php";
 /**
  * defines specific items to test
+ * 
+ * key is class name, value is file path
  * 
  * @var array
  */
 $GLOBALS ['autoload_map'] = array (
-	'ExternalItem' => $ExternalItemsPath,
-	'DibsItem' => $ExternalItemsPath,
-	'DCSItem' => $ExternalItemsPath,
-	'DCSFabric' => $ExternalItemsPath,
-	'DCSFittings' => $ExternalItemsPath,
-	'DCSFixtures' => $ExternalItemsPath,
-	'DCSTile' => $ExternalItemsPath,
-	'Seller' => $ExternalItemsPath,
+//	'ExternalItem' => BASE_PATH. "/lib/1stdibs_shipping_api/om/ExternalItems.php",
 );
-//$GLOBALS['autoload_map']['MySQLConnection']      = UPS_BASE_PATH.'/lib/common/Database.php';
-//$GLOBALS['autoload_map']['IRecordSet']           = UPS_BASE_PATH.'/lib/common/Database.php';
-//$GLOBALS['autoload_map']['MySQLRecordSet']       = UPS_BASE_PATH.'/lib/common/Database.php';
-//$GLOBALS['autoload_map']['ArrayRecordSet']       = UPS_BASE_PATH.'/lib/common/Database.php';
-//$GLOBALS['autoload_map']['Error']                = UPS_BASE_PATH.'/lib/common/Error.php';
-//$GLOBALS['autoload_map']['WorkXpress_Exception'] = UPS_BASE_PATH.'/lib/common/Exception.php';
-//$GLOBALS['autoload_map']['Item']                 = UPS_BASE_PATH.'/lib/wx/Item.php';
-//$GLOBALS['autoload_map']['ItemType']             = UPS_BASE_PATH.'/lib/wx/ItemType.php';
-//$GLOBALS['autoload_map']['FieldType']            = UPS_BASE_PATH.'/lib/wx/FieldType.php';
 
 
 spl_autoload_register("main_autoload");
