@@ -41,20 +41,24 @@ class FPX extends DEBUG{
 				
 		//required params are by group, at least one group must satisfy all their params
 		if(isset($structure['required'])){
-			DEBUG::writeln('required');
 			$reqGroupSatisfied = false;
 			
 			if( is_array($required[0]) ){// alternate required groups
 				foreach($required as $set){
 	//				$set = explode(',', $set); // use arrays instead of comma separated. 	
 					$reqGroupSatisfied = static::require_params($set, $params) || $reqGroupSatisfied;
+					if(!$reqGroupSatisfied){
+						$missing_required_params[] = static::getMissingRequiredParams($set, $params);
+					}
 				}
 			}else{ // only one required group. simpler syntax
 				$reqGroupSatisfied = static::require_params($required, $params);
+				if(!$reqGroupSatisfied){
+					$missing_required_params = static::getMissingRequiredParams($required, $params);
+				}
 			}
-			DEBUG::lvar_dump(" group satisfied ", $reqGroupSatisfied);
 			if(!$reqGroupSatisfied){
-				ERROR::writeln("Missing required parameter<br />". static::formatParamsError($required, $optional));
+				ERROR::writeln("Missing required parameter: $missing_required_params <br />". static::formatParamsError($required, $optional));
 				return false;
 			}
 		}
@@ -76,9 +80,12 @@ class FPX extends DEBUG{
 			$optionalGroupSatisfied = true;
 		}else{
 			$optionalGroupSatisfied = static::restrict_params_to($optionalAll, $params);
+			if(!$optionalGroupSatisfied){
+				$extra_names = static::getUnwantedParams($optionalAll, $params);
+			}
 		}
 		if(!$optionalGroupSatisfied){
-			ERROR::writeln("Param used that was not in the contract <br />". static::formatParamsError($required, $optional));
+			ERROR::writeln("Param used that was not in the contract: $extra_names <br />". static::formatParamsError($required, $optional));
 			return false;
 		}
 		return $params;
@@ -127,12 +134,32 @@ class FPX extends DEBUG{
 		return $exists;
 	}
 	
+	protected static function getMissingRequiredParams($arrOfNames, $arrOfParams){
+		$missing = array();
+		foreach($arrOfNames as $name){
+			if(array_key_exists($name, $arrOfParams)){
+				$missing[] = $name;
+			}
+		}
+		return implode(", ", $missing);
+	}
+	
 	public static function restrict_params_to($arrOfNames, $arrOfParams){
 		$conforms = true;
 		foreach($arrOfParams as $key=>$param){
 			$conforms = in_array($key, $arrOfNames) && $conforms;
 		}
 		return $conforms;
+	}
+	
+	protected static function getUnwantedParams($arrOfNames, $arrOfParams){
+		$extra = array();
+		foreach($arrOfParams as $key=>$param){
+			if(!in_array($key, $arrOfNames)){
+				$extra[] = $key;
+			}
+		}
+		return implode(", ", $extra);
 	}
 	
 	
