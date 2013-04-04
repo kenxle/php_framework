@@ -4,6 +4,8 @@
  * 
  * A class for managing CRUD database functionality. 
  * 
+ * * MODIFIED from standard to put a "created date" in automatically. All children must have a field nicknamed "created". 
+ * 
  * In your extension of this class, you should fill in the following:
  * 
  * $table_name
@@ -32,11 +34,11 @@ class BaseTable{
 	 */
 	static $table_name = "";
 	
-	/**
-	 * All fields in this table, as they are named in the database. 
-	 * @var unknown_type
-	 */
-	static $fields = array();
+//	/**
+//	 * All fields in this table, as they are named in the database. 
+//	 * @var unknown_type
+//	 */
+//	static $fields = array();
 	
 	/**
 	 * A mapping of nicknames to actual table names, like so:
@@ -121,6 +123,8 @@ class BaseTable{
 	/**
 	 * Create a new database entry
 	 * 
+	 * MODIFIED from standard to put a created date in automatically. All children must have a field nicknamed "created". 
+	 * 
 	 * Separated from __construct because of a data leak in the previous project that hinged on conditional creation of entries based on input to the function. 
 	 * 
 	 * Accepts a hash of known values to put into the row, with keys as field nicknames and values as table values. 
@@ -138,6 +142,7 @@ class BaseTable{
 			'required' => array(),
 			'optional' => array_keys(static::$field_nicks_map) // -krs takes the widest stance possible. might should be static::$editable_nicks
 		));
+		
 		$query = "INSERT INTO ". static::$table_name. " ( `". implode('`, `', static::nicks_to_fields(array_keys($knownData))) ."` ) 
 				VALUES ( '". implode('\', \'', $knownData) ."' )";
 		$result = SQL::query($query);
