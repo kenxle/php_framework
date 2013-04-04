@@ -22,6 +22,7 @@
 		<div id="debug">
 			<?BENCHMARK::createReport();?>
 			<?DEBUG::printBuffer();?>
+			<?ERROR::printBuffer();?>
 		</div>
 	</body>
 </html>
