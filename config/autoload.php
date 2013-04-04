@@ -27,7 +27,7 @@ $GLOBALS ['autoload_paths'] = array (
  * @var array
  */
 $GLOBALS ['autoload_map'] = array (
-//	'ExternalItem' => BASE_PATH. "/lib/1stdibs_shipping_api/om/ExternalItems.php",
+//	'ExternalItem' => BASE_PATH. "/lib/om/ExternalItems.php",
 );
 
 

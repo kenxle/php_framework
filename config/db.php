@@ -1,8 +1,8 @@
 <?php
 $address= "127.0.0.1";
-$user="ldev";
-$password="aperture394";
-$database="dibs1_shipping";
+$user="root";
+$password="";
+$database="life_catalogue";
 
 $dbLink = mysql_connect($address,$user,$password);
 mysql_set_charset('utf8', $dbLink);
