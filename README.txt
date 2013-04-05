@@ -77,3 +77,15 @@ BASIC ORGANIZATION/FILE STRUCTURE:
 * www
 	- your htdocs root
 	
+	
+You may notice a lot of name reuse. This is intentional. One page may have
+example.php - staging page
+example.data.php - form definition
+example.tpl.php - main template
+example_inline.js.php - inline javascript with dynamic php vars
+example_inline.css.php - inline css with dynamic php vars
+example.js - straightforward js
+example.css - straightforward css
+If your IDE lets you search by filename, this becomes very helpful. A search for example
+gives all files related to that page, each specified by it's extension. 
+	
