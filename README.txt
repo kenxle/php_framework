@@ -17,8 +17,8 @@ then take a quick spin through the included files and see what each one is bring
 to the table. There's very little, so it shouldn't be too hard. 
 
 If you'll be using a DB, be sure to read BaseTable.php. It gives you the 4 basics of
-create, read, update, and delete, but in most cases you'll need to add some
-additional functions to the child class to hold more complex sql queries. 
+create, read, update, and delete, which can get you pretty far, but in many cases you'll 
+need to add some additional functions to the child class to hold more complex sql queries. 
 
 There are also a minimum of utility classes to alleviate some of the weaknesses of 
 PHP. 
@@ -54,8 +54,6 @@ BASIC ORGANIZATION/FILE STRUCTURE:
  	* util
  * templates
  	* lib
- 		* forms
- 		* social
  	* www
  * www
 	* css
@@ -86,6 +84,7 @@ example_inline.js.php - inline javascript with dynamic php vars
 example_inline.css.php - inline css with dynamic php vars
 example.js - straightforward js
 example.css - straightforward css
-If your IDE lets you search by filename, this becomes very helpful. A search for example
-gives all files related to that page, each specified by it's extension. 
+
+If your IDE lets you search by filename, this becomes very helpful. A search for "example"
+gives all files related to that page, each distinguished by it's extension. 
 	

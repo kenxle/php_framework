@@ -29,6 +29,16 @@ class FPX extends DEBUG{
 	 * The optional list will restrict the parameters to only those listed in the contract,
 	 * to help catch typos and let you know when you've used an invalid parameter. 
 	 * 
+	 * A fun idiom:
+	 * public static function inventoryDelivery($pArr){
+		  extract(FPX::contract(array(
+				"required" => array('start_date', 'end_date'),
+				"optional" => array('rollup', 'report_format')
+		  )));
+	 * Now all your defined variables are ready for use, just as if
+	 * you'd declared them normally. Use of extract() is ok because
+	 * we define the params, and contract() is returning our defs. 
+	 * 
 	 * @param unknown_type $arr
 	 */
 	public static function contract($structure){
