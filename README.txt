@@ -80,8 +80,8 @@ You may notice a lot of name reuse. This is intentional. One page may have
 example.php - staging page
 example.data.php - form definition
 example.tpl.php - main template
-example_inline.js.php - inline javascript with dynamic php vars
-example_inline.css.php - inline css with dynamic php vars
+example.js.php - inline javascript with dynamic php vars
+example.css.php - inline css with dynamic php vars
 example.js - straightforward js
 example.css - straightforward css
 
