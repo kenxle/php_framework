@@ -1,7 +1,7 @@
 A barebones PHP framework that I use for prototyping and doing quick 
 proof of concept projects. 
 
-More than anything, it is an organizational structure to help you move quickly through
+More than anything, it is an organizational structure to help me move quickly through
 PHP development, taking advantage of different features of PHP for different layers
 of the framework. 
 
