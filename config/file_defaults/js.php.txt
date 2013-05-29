@@ -1,0 +1,4 @@
+<?php 
+// Inline js file
+// Specific to page {{file_path}}/{{file_name}}
+?>

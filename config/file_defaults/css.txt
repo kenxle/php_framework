@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+
+/**
+ * Standard css file
+ * Specific to page {{file_path}}/{{file_name}}
+ */

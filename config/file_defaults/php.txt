@@ -1,0 +1,47 @@
+<?php
+
+
+require_once("../../config/config.inc.php");
+require_once(BASE_PATH. "/config/config.form.php");
+require_once(BASE_PATH. "/config/api_creation.php");
+
+// DEBUG::activate(true);
+
+
+/* HEADER VALUES */
+$metaTitle = "{{file_name}}";
+$metaDesc = "";
+$metaKeywords = "";
+
+$js_files = array(
+	"lib/jquery-ui.js",
+	"lib/d3.v3/d3.v3.min.js",
+	"{{file_path}}/{{file_name}}.js",
+);
+$inline_js = array(
+// 	"activate_datepicker_inline.php",
+	"{{file_path}}/{{file_name}}.js.php",
+);
+$css_files = array(
+	"jquery-ui.css",
+	"page.css",
+	"d3.css",
+	"{{file_path}}/{{file_name}}.css",
+);
+$inline_css = array(
+	"{{file_path}}/{{file_name}}.css",
+);
+
+/* SPECIFY PAGE LAYOUTS */
+//$common_html_head_content = BASE_PATH."templates/sites/photo_archive_search/search/html_head_content.php";
+//$specific_html_head_content = BASE_PATH."templates/photo_archive_search/search/search_html_head_content.php";
+// $page_header = BASE_PATH."templates/lib/header.tpl.php";
+$page_content = BASE_PATH."templates/www/{{file_path}}/{{file_name}}.tpl.php";
+//$page_footer = BASE_PATH."templates/sites/photo_archive_search/search/page_footer.php";
+
+/* START TEMPLATE LAYER */
+include(BASE_PATH."templates/lib/layout.php");
+
+
+	
+	?>
