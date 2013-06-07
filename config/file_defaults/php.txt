@@ -29,7 +29,7 @@ $css_files = array(
 	"{{file_path}}/{{file_name}}.css",
 );
 $inline_css = array(
-	"{{file_path}}/{{file_name}}.css",
+	"{{file_path}}/{{file_name}}.css.php",
 );
 
 /* SPECIFY PAGE LAYOUTS */
