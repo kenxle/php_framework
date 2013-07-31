@@ -93,9 +93,6 @@ function main_autoload($class_name) {
 
 	/** try to find the file by using the class name to derive the path **/
 	if (empty ( $include_file )) {
-		// get the directory structure from the class name
-		$test_paths [] = UPS_BASE_PATH . '/' . str_replace ( '_', '/', $class_name ) . '.php';
-		$test_paths [] = UPS_BASE_PATH . '/inc' . str_replace ( '_', '/', $class_name ) . '.php';
 		
 		// loop through each path to try to include file
 		foreach ( $test_paths as $test_path ) {
