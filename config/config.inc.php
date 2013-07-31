@@ -1,5 +1,5 @@
 <?php
-define('BASE_PATH', '/Applications/XAMPP/xamppfiles/htdocs/eclipse/first_ads_served/');	
+define('BASE_PATH', realpath(__DIR__ . "/../") . "/");	
 define('TEMPLATES_PATH', BASE_PATH. 'templates/');
 define('CSS_FILE_PATH', BASE_PATH. 'docroot/css/');
 define('WEB_ROOT', 'http://localhost/eclipse/first_ads_served/www/');
