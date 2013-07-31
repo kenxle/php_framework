@@ -2,7 +2,7 @@
 define('BASE_PATH', realpath(__DIR__ . "/../") . "/");	
 define('TEMPLATES_PATH', BASE_PATH. 'templates/');
 define('CSS_FILE_PATH', BASE_PATH. 'docroot/css/');
-define('WEB_ROOT', 'http://localhost/eclipse/first_ads_served/www/');
+define('WEB_ROOT', 'http://k3.local/');
 define('IMAGES_PATH', WEB_ROOT. 'images/');
 define('CSS_WEB_PATH', WEB_ROOT. 'css/');
 define('CSS_ROOT', BASE_PATH. 'www/css/');
@@ -11,6 +11,9 @@ define('JS_ROOT', BASE_PATH. 'www/js/');
 
 // not using the db
 // require_once ('db.php');
+
+$inc = array(get_include_path(), BASE_PATH . 'lib');
+set_include_path(implode(PATH_SEPARATOR, $inc));
 
 require_once ('autoload.php');
 BENCHMARK::activate(); // activate and deactivate because you can't call the class before you include this file, but we still want an early page benchmark. 
