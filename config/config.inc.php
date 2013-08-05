@@ -9,8 +9,11 @@ define('CSS_ROOT', BASE_PATH. 'www/css/');
 define('JS_WEB_PATH', WEB_ROOT. 'js/');
 define('JS_ROOT', BASE_PATH. 'www/js/');
 
+error_reporting(E_ALL ^ E_NOTICE);
+
 // not using the db
 // require_once ('db.php');
+
 
 $inc = array(get_include_path(), BASE_PATH . 'lib');
 set_include_path(implode(PATH_SEPARATOR, $inc));

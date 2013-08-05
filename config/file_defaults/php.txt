@@ -7,6 +7,8 @@ require_once(BASE_PATH. "/config/api_creation.php");
 
 // DEBUG::activate(true);
 
+//include("{{file_name}}.data.php");
+//extract_only(get_input_names($form_elements), $_GET);
 
 /* HEADER VALUES */
 $metaTitle = "{{file_name}}";
