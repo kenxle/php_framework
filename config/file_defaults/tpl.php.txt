@@ -1,4 +1,4 @@
 <?php 
-// Base template file
-// Specific to page {{file_path}}/{{file_name}}
+// Template file specific to page {{file_path}}/{{file_name}}
 ?>
+hello template

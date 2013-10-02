@@ -125,6 +125,7 @@ require_once(BASE_PATH . "config/config.form.php");
 
 foreach ($form_elements as $element){
 	
+	
 	//munge some data
 	//name is name or id or label->tolower->stripped
 	$element['name'] = 
@@ -140,7 +141,12 @@ foreach ($form_elements as $element){
 			str_replace( $label_strips, "", strtolower($element['label']) )
 		)
 	);
-	
+
+	if($element['display_options']['before_element']){
+		echo $element['display_options']['before_element'];
+	}else{
+		echo $form_delimiters['before_element'];
+	}
 	//grab the file for this type
 	$file = get_template_file($element);
 	//include this file

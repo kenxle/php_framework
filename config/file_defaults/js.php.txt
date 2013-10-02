@@ -2,3 +2,6 @@
 // Inline js file
 // Specific to page {{file_path}}/{{file_name}}
 ?>
+<script type="text/javascript">
+	function initPage(){}
+</script>
