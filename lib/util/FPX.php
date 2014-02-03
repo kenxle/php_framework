@@ -172,5 +172,28 @@ class FPX extends DEBUG{
 		return implode(", ", $extra);
 	}
 	
+	public static function pdefault(&$param, $default, $replacement_type="full"){
+		switch ($replacement_type){
+			case "isset": // will only replace if it's not set at all
+				$replace = !isset($param);
+				break;
+			case "full": // will replace variables that are set but falsy
+				$replace = !$param;
+				break;
+			case "empty": 
+				$replace = empty($param);
+				break;
+			default: // use replacement_type as a function name
+				$replace = $replacement_type($param);
+		}
+
+		if($replace){
+			$calling_func = self::getCallingFunction(2);
+			DEBUG::writeln($calling_func. ": defaulting '$param' to '$default'");
+			$param = $default;
+		}
+	}
+	
+	
 	
 }

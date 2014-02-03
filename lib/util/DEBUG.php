@@ -20,6 +20,66 @@ class DEBUG{
 	static $buffer = false;
 	static $thebuffer = array();
 	static $newline = "<br />\n";
+	static $outputStream = "php://output";
+	static $outputHandle = null;
+	static $writeWrapper = null;
+	static $label_wrapper_open = "<b>";
+	static $label_wrapper_close = "</b>";
+	static $body_wrapper_open = "<pre>";
+	static $body_wrapper_close = "</pre>";
+	
+	public static function setStyle($str){
+		switch ($str){
+			case "console":
+				static::setNewLine("\n");
+				static::setLabelWrapperOpen("");
+				static::setLabelWrapperClose("");
+				static::setBodyWrapperOpen("");
+				static::setBodyWrapperClose("");
+				static::setWriteWrapper(function($string){
+					return "[".date('Y-m-d H:i:s')."] " . $string;
+				});
+				break;
+			case "html":
+				static::setNewLine("<br />\n");
+				static::setLabelWrapperOpen("<b>");
+				static::setLabelWrapperClose("</b>");
+				static::setBodyWrapperOpen("<pre>");
+				static::setBodyWrapperClose("</pre>");
+				break;
+		}
+	}
+	
+	public static function setNewLine($str){
+		static::$newline = $str;
+	}
+	
+	public static function setLabelWrapperOpen($str){
+		static::$label_wrapper_open = $str;
+	}
+	public static function setLabelWrapperClose($str){
+		static::$label_wrapper_close = $str;
+	}
+	public static function setBodyWrapperOpen($str){
+		static::$body_wrapper_open = $str;
+	}
+	public static function setBodyWrapperClose($str){
+		static::$body_wrapper_close = $str;
+	}
+	/**
+	 * Choose the output stream. Allows you to print
+	 * to a log instead of standard output
+	 */
+	public static function setOutputStream($outputStream, $command="w"){
+		static::$outputStream = $outputStream;
+		static::$outputHandle = fopen(static::$outputStream, $command);
+	}
+	/**
+	 * A function to wrap write output
+	 */
+	public static function setWriteWrapper($func){
+		
+	}
 	
 	/**
 	 * print the input and a newline
@@ -35,10 +95,17 @@ class DEBUG{
 	 */
 	public static function write($string){
 		if(static::$debug){
+			// if we've got a wrapper function, call it. 
+			if(is_callable(static::$writeWrapper)){
+				$string = static::writeWrapper($string);
+			}
 			if(static::$buffer){
 				static::$thebuffer[] = $string; 
 			}else{
-				echo $string;
+				if(!static::$outputHandle) {
+					static::$outputHandle = fopen(static::$outputStream, 'w');
+				}
+				fwrite(static::$outputHandle, $string);
 			}
 		}
 	}
@@ -85,41 +152,38 @@ class DEBUG{
 	 * Dumps the buffer to the output
 	 */
 	public static function printBuffer(){
+		static::$buffer = false; // turn off buffer so write will print
 		foreach(static::$thebuffer as $string){
-			echo $string;
+			 static::write($string);
 		}
 	}
 	
 	/**
 	 * same as formatted_var_dump, only it puts a bold label in front
 	 */
-	public static function labelled_var_dump($label, $var){
+	public static function labelled_var_dump($label, $var, $func=null){
 		if(static::$debug){
-			$label = "<b>".$label."</b>";
-			if(static::$buffer){
-				static::$thebuffer[] = $label;
-			}else{
-				echo $label;
-			}
-			static::formatted_var_dump($var);
+			$label = static::$label_wrapper_open.$label.static::$label_wrapper_close;
+			static::write($label);
+			static::formatted_var_dump($var, $func);
 		}
 	}
 	
 	/**
 	 * same as var_dump, only it indents the children of objects and arrays 
 	 */
-	public static function formatted_var_dump($var){
+	public static function formatted_var_dump($var, $func=null){
 		if(static::$debug){
 			ob_start();
-				echo "<pre>";
 				var_dump($var);
-				echo "</pre>";
 			$val = ob_get_clean();
-			if(static::$buffer){
-				static::$thebuffer[] = $val;
-			}else{
-				echo $val;
-			}
+			
+			if($func) $val = $func($val);
+			$val =  static::$body_wrapper_open.
+					$val.
+					static::$body_wrapper_close;
+			
+			static::write($val);
 		}
 	}
 	
@@ -128,12 +192,8 @@ class DEBUG{
 	 */
 	public static function labelled_print_r($label, $var){
 		if(static::$debug){
-			$label = "<b>".$label."</b>";
-			if(static::$buffer){
-				static::$thebuffer[] = $label;
-			}else{
-				echo $label;
-			}
+			$label = static::$label_wrapper_open.$label.static::$label_wrapper_close;
+			static::write($label);
 			static::formatted_print_r($var);
 		}
 	}
@@ -143,20 +203,16 @@ class DEBUG{
 	 */
 	public static function formatted_print_r($var){
 		if(static::$debug){
-			$val = "<pre>";
+			$val =  static::$body_wrapper_open;
 			$val .= print_r($var, true);
-			$val .= "</pre>";
-			if(static::$buffer){
-				static::$thebuffer[] = $val;
-			}else{
-				echo $val;
-			}
+			$val .=  static::$body_wrapper_close;
+			static::write($val);
 		}
 	}
 
 	/* aliases for labelled_var_dump and formatted_var_dump and the print_r's*/
-	public static function lvar_dump($label, $var){static::labelled_var_dump($label, $var);}
-	public static function fvar_dump($var){static::formatted_var_dump($var);}
+	public static function lvar_dump($label, $var, $func=null){static::labelled_var_dump($label, $var, $func);}
+	public static function fvar_dump($var, $func=null){static::formatted_var_dump($var, $func);}
 	public static function lprint_r($label, $var){static::labelled_print_r($label, $var);}
 	public static function fprint_r($var){static::formatted_print_r($var);}
 	

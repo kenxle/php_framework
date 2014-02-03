@@ -3,10 +3,17 @@
 
 require_once("../../config/config.inc.php");
 require_once(BASE_PATH. "/config/config.form.php");
-require_once(BASE_PATH. "/config/api_creation.php");
 
 // DEBUG::activate(true);
+$form_delimiters = array(
+		"before_element" => "<div class='form_element_container'>",
+		"after_element" => "<br /><br /></div>"
+);
 
+$form_metadata = array(
+		'action' => "{{file_name}}.php",
+		'method' => "GET"
+);
 //include("{{file_name}}.data.php");
 //extract_only(get_input_names($form_elements), $_GET);
 
@@ -35,14 +42,14 @@ $inline_css = array(
 );
 
 /* SPECIFY PAGE LAYOUTS */
-//$common_html_head_content = BASE_PATH."templates/sites/photo_archive_search/search/html_head_content.php";
-//$specific_html_head_content = BASE_PATH."templates/photo_archive_search/search/search_html_head_content.php";
-// $page_header = BASE_PATH."templates/lib/header.tpl.php";
-$page_content = BASE_PATH."templates/www/{{file_path}}/{{file_name}}.tpl.php";
-//$page_footer = BASE_PATH."templates/sites/photo_archive_search/search/page_footer.php";
+//$common_html_head_content = TEMPLATES_PATH."sites/photo_archive_search/search/html_head_content.php";
+//$specific_html_head_content = TEMPLATES_PATH."photo_archive_search/search/search_html_head_content.php";
+// $page_header = TEMPLATES_PATH."lib/layout/header.tpl.php";
+$page_content = TEMPLATES_PATH."www/{{file_path}}/{{file_name}}.tpl.php";
+//$page_footer = TEMPLATES_PATH."sites/photo_archive_search/search/page_footer.php";
 
 /* START TEMPLATE LAYER */
-include(BASE_PATH."templates/lib/layout.php");
+include(TEMPLATES_PATH."lib/layout/layout.php");
 
 
 	

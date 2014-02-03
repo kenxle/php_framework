@@ -12,6 +12,14 @@ class ERROR extends DEBUG{
 	static $debug = false;
 	static $buffer = false;
 	static $thebuffer = array();
+	static $newline = "<br />\n";
+	static $outputStream = "php://output";
+	static $outputHandle = null;
+	static $writeWrapper = null;
+	static $label_wrapper_open = "<b>";
+	static $label_wrapper_close = "</b>";
+	static $body_wrapper_open = "<pre>";
+	static $body_wrapper_close = "</pre>";
 	
 	public static function writeln($string, $e=null){
 		parent::write($string . 
@@ -32,19 +40,12 @@ class ERROR extends DEBUG{
 	 * @param unknown_type $e
 	 */
 	public static function throwError($string, $e=null){
-		$string = "<b>ERROR:</b> " . 
+		$string = static::$label_wrapper_open."ERROR:".static::$label_wrapper_close. 
 				($e ? $e . ": " : "") . 
 				$string . 
-				static::$newline . 
-				static::getBacktrace();
+				static::$newline ;
 				
-		if(static::$debug){
-			if(static::$buffer){
-				static::$thebuffer[] = $string; 
-			}else{
-				echo $string;
-			}
-		}
+		static::write($string);
 		trigger_error($string, E_USER_ERROR);
 	}
 	
@@ -52,7 +53,7 @@ class ERROR extends DEBUG{
 		ob_start();
 			debug_print_backtrace();
 		$backtraceStr = ob_get_clean();
-		return "<pre>".$backtraceStr."</pre>";
+		return static::$body_wrapper_open.$backtraceStr.static::$body_wrapper_close;
 	}
 	
 }

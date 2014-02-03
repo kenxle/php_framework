@@ -142,7 +142,7 @@ foreach ($form_elements as $element){
 		)
 	);
 
-	if($element['display_options']['before_element']){
+	if(isset($element['display_options']['before_element'])){
 		echo $element['display_options']['before_element'];
 	}else{
 		echo $form_delimiters['before_element'];
@@ -152,11 +152,10 @@ foreach ($form_elements as $element){
 	//include this file
 	include ($file);
 	
-	if($element['display_options']['after_element']){
+	if(isset($element['display_options']['after_element'])){
 		echo $element['display_options']['after_element'];
 	}else{
 		echo $form_delimiters['after_element'];
 	}
-	
 }
 

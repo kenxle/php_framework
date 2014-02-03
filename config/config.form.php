@@ -51,8 +51,14 @@ $form_config = array(
 	"date" => array(
 		"default" => $p. "date_picker.tpl.php"
 	),
+	"hidden" => array(
+		"default" => $p. "hidden.tpl.php"
+	),
 	"submit" => array(
 		"default" => $p."submit.tpl.php"
+	),
+	"file" => array(
+		"default" => $p."file.tpl.php"
 	),
 );
 
@@ -80,4 +86,21 @@ function get_input_names($form_structure){
 	
 	return $names_arr;
 	
+}
+
+
+function number($number, $money=false){
+	if(isset($number)){
+		$str = "";
+		$str .= $money ? "$" : "";
+		
+		if ($money){
+			$str .= number_format($number, 2);
+		}else{
+			$str .= number_format($number, 0);
+		}
+	}else{
+		$str = $number;
+	}
+	return $str;
 }

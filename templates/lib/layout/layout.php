@@ -4,15 +4,15 @@
 	<head>
 	<?
 		if($common_html_head_content) include($common_html_head_content); 
-		else include(BASE_PATH. "templates/lib/head_content.tpl.php");
+		else include(BASE_PATH. "templates/lib/layout/head_content.tpl.php");
 		if($specific_html_head_content) include($specific_html_head_content);
 		include(BASE_PATH."templates/lib/social/facebook_open_graph_meta_tags.php");
-		include(BASE_PATH."templates/lib/css_includes.php");
-		include(BASE_PATH."templates/lib/js_includes.php");
+		include(BASE_PATH."templates/lib/layout/css_includes.php");
+		include(BASE_PATH."templates/lib/layout/js_includes.php");
 	?>
 	</head>
 	<body<?=($body_id ? " id=$body_id" : "")?>>
-		<div id="page_container">
+		<div id="<?=($page_container_id ? $page_container_id : "page_container")?>">
 		<?
 			if($page_header) 	include($page_header);
 			if($page_content) 	include($page_content);
