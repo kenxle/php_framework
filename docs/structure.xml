@@ -1,0 +1,3514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="PHP Framework" version="2.2.0&#10;">
+  <partials/>
+  <file path="lib/auth/ActiveGuest.php" generated-path="lib.auth.ActiveGuest.html" hash="235f25373a59c722c013d0db534f40a8" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="2" package="Default">
+      <extends>\BaseTable</extends>
+      <name>ActiveGuest</name>
+      <full_name>\ActiveGuest</full_name>
+      <docblock line="2">
+        <description>A class for managing CRUD database functionality.</description>
+        <long-description>* MODIFIED from standard to put a "created date" in automatically. All children must have a field nicknamed "created".
+
+In your extension of this class, you should fill in the following:
+
+$table_name
+$fields
+$field_nicks_map
+$searchable_nicks
+$sortable_nicks
+$editable_nicks
+
+
+
+Assumption:
+The nickname 'id' will be used to represent the primary key.
+If this is not the case, you can set $constructor_key to the primary key nickname.</long-description>
+      </docblock>
+      <property static="true" visibility="public" line="4" namespace="" package="Default">
+        <name>$table_name</name>
+        <default>"users_active_guest"</default>
+        <docblock line="4">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="6" namespace="" package="Default">
+        <name>$fields</name>
+        <default>array("ip", "timestamp")</default>
+        <docblock line="6">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="10" namespace="" package="Default">
+        <name>$field_nicks_map</name>
+        <default>array("ip" =&gt; "ip", "timestamp" =&gt; "timestamp")</default>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="14" namespace="" package="Default">
+        <name>$searchable_nicks</name>
+        <default>array("ip", "timestamp")</default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="18" namespace="" package="Default">
+        <name>$sortable_nicks</name>
+        <default>array("ip", "timestamp")</default>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="22" namespace="" package="Default">
+        <name>$editable_nicks</name>
+        <default>array("ip", "timestamp")</default>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="2" code="PPC:ERR-50005">No summary for class \ActiveGuest</error>
+      <error line="4" code="PPC:ERR-50007">No summary for property $table_name</error>
+      <error line="6" code="PPC:ERR-50007">No summary for property $fields</error>
+      <error line="10" code="PPC:ERR-50007">No summary for property $field_nicks_map</error>
+      <error line="14" code="PPC:ERR-50007">No summary for property $searchable_nicks</error>
+      <error line="18" code="PPC:ERR-50007">No summary for property $sortable_nicks</error>
+      <error line="22" code="PPC:ERR-50007">No summary for property $editable_nicks</error>
+    </parse_markers>
+    <source>eJydjkEKwjAQRdfJKYbgQsEb1Cq68QLuw5iOGmxqyExFEe9uUxdC0UVdffj89/iLVTxF7WpkhrUTf6VtSyxAN6GmYtgg0w73NT20Viwo3sFEcmEbDAQlmJYpscUetsdMm0Krz/rgqe5MJWBKeJ9qpYyPZp5TfOjmGKLRalYMENt4d2YbMA5ZKJfwxdHXv5RMmNzpfTx7R/3hS5I/Uar8SPT5AvHre1o=</source>
+  </file>
+  <file path="lib/auth/ActiveUser.php" generated-path="lib.auth.ActiveUser.html" hash="3e6b2d7f5eaa57230d212f7a99b496a9" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="2" package="Default">
+      <extends>\BaseTable</extends>
+      <name>ActiveUser</name>
+      <full_name>\ActiveUser</full_name>
+      <docblock line="2">
+        <description>A class for managing CRUD database functionality.</description>
+        <long-description>* MODIFIED from standard to put a "created date" in automatically. All children must have a field nicknamed "created".
+
+In your extension of this class, you should fill in the following:
+
+$table_name
+$fields
+$field_nicks_map
+$searchable_nicks
+$sortable_nicks
+$editable_nicks
+
+
+
+Assumption:
+The nickname 'id' will be used to represent the primary key.
+If this is not the case, you can set $constructor_key to the primary key nickname.</long-description>
+      </docblock>
+      <property static="true" visibility="public" line="4" namespace="" package="Default">
+        <name>$table_name</name>
+        <default>"users_active"</default>
+        <docblock line="4">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="6" namespace="" package="Default">
+        <name>$fields</name>
+        <default>array("username", "timestamp")</default>
+        <docblock line="6">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="10" namespace="" package="Default">
+        <name>$field_nicks_map</name>
+        <default>array("username" =&gt; "username", "timestamp" =&gt; "timestampe")</default>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="14" namespace="" package="Default">
+        <name>$searchable_nicks</name>
+        <default>array("username", "timestamp")</default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="18" namespace="" package="Default">
+        <name>$sortable_nicks</name>
+        <default>array("username", "timestamp")</default>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="22" namespace="" package="Default">
+        <name>$editable_nicks</name>
+        <default>array("username", "timestamp")</default>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="2" code="PPC:ERR-50005">No summary for class \ActiveUser</error>
+      <error line="4" code="PPC:ERR-50007">No summary for property $table_name</error>
+      <error line="6" code="PPC:ERR-50007">No summary for property $fields</error>
+      <error line="10" code="PPC:ERR-50007">No summary for property $field_nicks_map</error>
+      <error line="14" code="PPC:ERR-50007">No summary for property $searchable_nicks</error>
+      <error line="18" code="PPC:ERR-50007">No summary for property $sortable_nicks</error>
+      <error line="22" code="PPC:ERR-50007">No summary for property $editable_nicks</error>
+    </parse_markers>
+    <source>eJylj8EKwjAMhs/tU4TiQcE3mFP0GfRcYhdZcZ2liaKI7+46QWHoZR6TfP+XZLGKddSuQWZYO/EX2jEloKtQWzFskGmL+4buWisWFO9gIrlhWwwEJZhzx7PFPmsKrT7cwVPTOUrAlPA21Ur1cA6aea7EB+rgEI1Ws2IQtK13R7YB43cDlEv46euH75IGfiZMrn59kZeMOJFPSf4SUOVHCR5PFZ+H+Q==</source>
+  </file>
+  <file path="lib/auth/BannedUser.php" generated-path="lib.auth.BannedUser.html" hash="0c60819740235e6efe710039822fcc54" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="2" package="Default">
+      <extends>\BaseTable</extends>
+      <name>BannedUser</name>
+      <full_name>\BannedUser</full_name>
+      <docblock line="2">
+        <description>A class for managing CRUD database functionality.</description>
+        <long-description>* MODIFIED from standard to put a "created date" in automatically. All children must have a field nicknamed "created".
+
+In your extension of this class, you should fill in the following:
+
+$table_name
+$fields
+$field_nicks_map
+$searchable_nicks
+$sortable_nicks
+$editable_nicks
+
+
+
+Assumption:
+The nickname 'id' will be used to represent the primary key.
+If this is not the case, you can set $constructor_key to the primary key nickname.</long-description>
+      </docblock>
+      <property static="true" visibility="public" line="4" namespace="" package="Default">
+        <name>$table_name</name>
+        <default>"users_banned"</default>
+        <docblock line="4">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="6" namespace="" package="Default">
+        <name>$fields</name>
+        <default>array("username", "timestamp")</default>
+        <docblock line="6">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="10" namespace="" package="Default">
+        <name>$field_nicks_map</name>
+        <default>array("username" =&gt; "username", "timestamp" =&gt; "timestamp")</default>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="14" namespace="" package="Default">
+        <name>$searchable_nicks</name>
+        <default>array("username", "timestamp")</default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="18" namespace="" package="Default">
+        <name>$sortable_nicks</name>
+        <default>array("username", "timestamp")</default>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="22" namespace="" package="Default">
+        <name>$editable_nicks</name>
+        <default>array("username", "timestamp")</default>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="2" code="PPC:ERR-50005">No summary for class \BannedUser</error>
+      <error line="4" code="PPC:ERR-50007">No summary for property $table_name</error>
+      <error line="6" code="PPC:ERR-50007">No summary for property $fields</error>
+      <error line="10" code="PPC:ERR-50007">No summary for property $field_nicks_map</error>
+      <error line="14" code="PPC:ERR-50007">No summary for property $searchable_nicks</error>
+      <error line="18" code="PPC:ERR-50007">No summary for property $sortable_nicks</error>
+      <error line="22" code="PPC:ERR-50007">No summary for property $editable_nicks</error>
+    </parse_markers>
+    <source>eJylj8EKwjAMhs/tU4TiQcE3mFXwGfRcsi6y4lpLU0ER3921HgRxl3lM8v1fks0u9lHaAZlhjyFQd2RKQLdMoSstpgO2Az2kFJwxOwuLXBomoCfQoK4jz6atWdVI8eFOjobRoQFTwvtSClHhElTrUmXnaYR9VFKsmq+gCc6e2XiMvw2gtzDpq8MpPRMm27+fKDtmXMiXlP8SUOdmCZ4vPmaHbA==</source>
+  </file>
+  <file path="lib/auth/check_auth.php" generated-path="lib.auth.check_auth.html" hash="6404c86779377792852e4afb91714235" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyzsS/IKODiUsnJT09PTYnPzIsvLU4tUrBVCAVSVlbJGanJ2fEFqUW5mcXFmfl5xRqa1gDF9RH3</source>
+  </file>
+  <file path="lib/auth/Permission.php" generated-path="lib.auth.Permission.html" hash="9ec872e15ec7eec23bb6d78da601e679" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="2" package="Default">
+      <extends>\BaseTable</extends>
+      <name>Permission</name>
+      <full_name>\Permission</full_name>
+      <docblock line="2">
+        <description>A class for managing CRUD database functionality.</description>
+        <long-description>* MODIFIED from standard to put a "created date" in automatically. All children must have a field nicknamed "created".
+
+In your extension of this class, you should fill in the following:
+
+$table_name
+$fields
+$field_nicks_map
+$searchable_nicks
+$sortable_nicks
+$editable_nicks
+
+
+
+Assumption:
+The nickname 'id' will be used to represent the primary key.
+If this is not the case, you can set $constructor_key to the primary key nickname.</long-description>
+      </docblock>
+      <property static="false" visibility="public" line="3" namespace="" package="Default">
+        <name>$mask</name>
+        <default></default>
+        <docblock line="3">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="4" namespace="" package="Default">
+        <name>$name</name>
+        <default></default>
+        <docblock line="4">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="6" namespace="" package="Default">
+        <name>$table_name</name>
+        <default>"permissions"</default>
+        <docblock line="6">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="7" namespace="" package="Default">
+        <name>$constructor_key</name>
+        <default>"mask"</default>
+        <docblock line="7">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="9" namespace="" package="Default">
+        <name>$fields</name>
+        <default>array("p_mask", "name", "display_name")</default>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="14" namespace="" package="Default">
+        <name>$field_nicks_map</name>
+        <default>array("mask" =&gt; "p_mask", "name" =&gt; "name", "display_name" =&gt; "display_name")</default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="19" namespace="" package="Default">
+        <name>$searchable_nicks</name>
+        <default>array("mask", "name", "display_name")</default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="24" namespace="" package="Default">
+        <name>$sortable_nicks</name>
+        <default>array("mask", "name", "display_name")</default>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="29" namespace="" package="Default">
+        <name>$editable_nicks</name>
+        <default>array("mask", "name", "display_name")</default>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="2" code="PPC:ERR-50005">No summary for class \Permission</error>
+      <error line="3" code="PPC:ERR-50007">No summary for property $mask</error>
+      <error line="4" code="PPC:ERR-50007">No summary for property $name</error>
+      <error line="6" code="PPC:ERR-50007">No summary for property $table_name</error>
+      <error line="7" code="PPC:ERR-50007">No summary for property $constructor_key</error>
+      <error line="9" code="PPC:ERR-50007">No summary for property $fields</error>
+      <error line="14" code="PPC:ERR-50007">No summary for property $field_nicks_map</error>
+      <error line="19" code="PPC:ERR-50007">No summary for property $searchable_nicks</error>
+      <error line="24" code="PPC:ERR-50007">No summary for property $sortable_nicks</error>
+      <error line="29" code="PPC:ERR-50007">No summary for property $editable_nicks</error>
+    </parse_markers>
+    <source>eJytkE0KwjAQRtfJKYbQhYI3qFXwBC7clzEdaehfyESxiHe3SUVRUQTdfZl8eW/IfGlLK3WNzLAm1xhm07VAR09twbBCpg1uazpJcUAHSYNcpdfcYkNDloI9eqMh8aGZhzFkoOwNxyq9l/Rw9m6vfefyivrQDFD1QNoZqgd9Bugc9hMphLJ5rM1CDooxFYZtjX2UKimm6RMjb42ueHhqH2ARBdkCXrFx+kYQ7z4omdDpcvyF4H11fr8+d87/h0SF+Y10vgBJi6Yl</source>
+  </file>
+  <file path="lib/auth/PermissionsModule.php" generated-path="lib.auth.PermissionsModule.html" hash="c924c41a6a0922ac7d097989bbf27714" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="2" package="Default">
+      <extends>\BaseTable</extends>
+      <name>PermissionsModule</name>
+      <full_name>\PermissionsModule</full_name>
+      <docblock line="2">
+        <description>A class for managing CRUD database functionality.</description>
+        <long-description>* MODIFIED from standard to put a "created date" in automatically. All children must have a field nicknamed "created".
+
+In your extension of this class, you should fill in the following:
+
+$table_name
+$fields
+$field_nicks_map
+$searchable_nicks
+$sortable_nicks
+$editable_nicks
+
+
+
+Assumption:
+The nickname 'id' will be used to represent the primary key.
+If this is not the case, you can set $constructor_key to the primary key nickname.</long-description>
+      </docblock>
+      <property static="true" visibility="public" line="4" namespace="" package="Default">
+        <name>$table_name</name>
+        <default>"permissions_modules"</default>
+        <docblock line="4">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="6" namespace="" package="Default">
+        <name>$fields</name>
+        <default>array("id", "module_name", "pm_mask")</default>
+        <docblock line="6">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="11" namespace="" package="Default">
+        <name>$field_nicks_map</name>
+        <default>array("id" =&gt; "id", "module_name" =&gt; "module_name", "mask" =&gt; "pm_mask")</default>
+        <docblock line="11">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="16" namespace="" package="Default">
+        <name>$searchable_nicks</name>
+        <default>array("module_name", "mask")</default>
+        <docblock line="16">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="20" namespace="" package="Default">
+        <name>$sortable_nicks</name>
+        <default>array("module_name", "mask")</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="24" namespace="" package="Default">
+        <name>$editable_nicks</name>
+        <default>array("module_name", "mask")</default>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="2" code="PPC:ERR-50005">No summary for class \PermissionsModule</error>
+      <error line="4" code="PPC:ERR-50007">No summary for property $table_name</error>
+      <error line="6" code="PPC:ERR-50007">No summary for property $fields</error>
+      <error line="11" code="PPC:ERR-50007">No summary for property $field_nicks_map</error>
+      <error line="16" code="PPC:ERR-50007">No summary for property $searchable_nicks</error>
+      <error line="20" code="PPC:ERR-50007">No summary for property $sortable_nicks</error>
+      <error line="24" code="PPC:ERR-50007">No summary for property $editable_nicks</error>
+    </parse_markers>
+    <source>eJylj8EKwjAMhs/tU4TiQcE3mFPwLnjwXmIbsWzdSlNBEd/drTsM5056CvzJ/31kswvXIE2NzHCk6B2zaxs+tPZWE9A9UWMZ9sh0wnNNTykFJ0zOwCL1gW7QE5SgwljWPrdZFVKM5xdHdYcqAWPEx1IKoZxV634O9xk1BMFrj1wpKVbFhKAbZ6pOgWGKgnILs8i8+HJkQV7N25gwmuvwY6/80M3TJoA2pj/qZN0P9dcb7BqOjA==</source>
+  </file>
+  <file path="lib/auth/PermissionsPage.php" generated-path="lib.auth.PermissionsPage.html" hash="4c74ef2ac7131e2733b33359b537c0de" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="2" package="Default">
+      <extends>\BaseTable</extends>
+      <name>PermissionsPage</name>
+      <full_name>\PermissionsPage</full_name>
+      <docblock line="2">
+        <description>A class for managing CRUD database functionality.</description>
+        <long-description>* MODIFIED from standard to put a "created date" in automatically. All children must have a field nicknamed "created".
+
+In your extension of this class, you should fill in the following:
+
+$table_name
+$fields
+$field_nicks_map
+$searchable_nicks
+$sortable_nicks
+$editable_nicks
+
+
+
+Assumption:
+The nickname 'id' will be used to represent the primary key.
+If this is not the case, you can set $constructor_key to the primary key nickname.</long-description>
+      </docblock>
+      <property static="true" visibility="public" line="4" namespace="" package="Default">
+        <name>$table_name</name>
+        <default>"permissions_pages"</default>
+        <docblock line="4">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="6" namespace="" package="Default">
+        <name>$fields</name>
+        <default>array("id", "page_url", "pp_mask")</default>
+        <docblock line="6">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="11" namespace="" package="Default">
+        <name>$field_nicks_map</name>
+        <default>array("id" =&gt; "id", "url" =&gt; "page_url", "mask" =&gt; "pp_mask")</default>
+        <docblock line="11">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="16" namespace="" package="Default">
+        <name>$searchable_nicks</name>
+        <default>array("url", "mask")</default>
+        <docblock line="16">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="20" namespace="" package="Default">
+        <name>$sortable_nicks</name>
+        <default>array("url", "mask")</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="24" namespace="" package="Default">
+        <name>$editable_nicks</name>
+        <default>array("url", "mask")</default>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="29" package="Default">
+        <name>hasPermission</name>
+        <full_name>\PermissionsPage::hasPermission()</full_name>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$permission_mask</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="37" package="Default">
+        <name>getPermissionMask</name>
+        <full_name>\PermissionsPage::getPermissionMask()</full_name>
+        <docblock line="37">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="37" description="" type="\unknown_type" variable="$url">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$url</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="2" code="PPC:ERR-50005">No summary for class \PermissionsPage</error>
+      <error line="4" code="PPC:ERR-50007">No summary for property $table_name</error>
+      <error line="6" code="PPC:ERR-50007">No summary for property $fields</error>
+      <error line="11" code="PPC:ERR-50007">No summary for property $field_nicks_map</error>
+      <error line="16" code="PPC:ERR-50007">No summary for property $searchable_nicks</error>
+      <error line="20" code="PPC:ERR-50007">No summary for property $sortable_nicks</error>
+      <error line="24" code="PPC:ERR-50007">No summary for property $editable_nicks</error>
+      <error line="29" code="PPC:ERR-50015">Argument $permission_mask is missing from the Docblock of hasPermission()</error>
+      <error line="29" code="PPC:ERR-50008">No summary for method hasPermission()</error>
+      <error line="37" code="PPC:ERR-50018">The type for the param tag $url in getPermissionMask() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="37" code="PPC:ERR-50008">No summary for method getPermissionMask()</error>
+    </parse_markers>
+    <source>eJydU11P2zAUfU5+xV1UDQfByl7blW2IaU+beGBP0xS5yW1j1bEt2yEg1P8+Xzs0UHjZJFTsm3POPffDnz6b1uS15M7BDdpOOCe0cjd8i4D3HlXj4Io7vOVriY95lmfOcy9qmHmKVIp3CCsozMStTCC7YvkcvBEog9IKuLX8geVZVoimOKP/hK56K8ebqTrudkWelcsjeqVEvXPhsznWgdUlHPRIKgZeCkfVFH8zhUNu6zbVRHle5HipckTU1v8HDRvxL7Q8M/1aBuKmV7UPbYaWu2lgbDYNIFZXhlllFn1vFTDGhPLlMQTeQ4r7Vrjzy8iCS7gol/M5rIUfhEP4+vMaNtpCAOIWLRBKqG2e7cnT/PQ0z+AU4s8Xwy3voFc7pQdV+QeDMAu10Mf5wf9Y/6GMLfqpjB9BnREn2r/+dvXr+2JhtZQ1l5JRH7JZtL6C8490C06dt8JA671ZhBtXDQzDQMBaIle0AAEdQJVFI3mNLDW6GBnFGcSjG8+B/KEowyFcopOYNBwqr3eoaFJ4b6RukBVEmNJEZPhrNJD7J/vyjtuq6TvDikllAaP8eI/cbBZfTrRLTVos0lKOjk8C/IQ2WHTP8z8TKZOM2LB32Bn/wJJgWT7CfF63WO9gI6zzZ+CEqhF8iykAKREIB41WCLr3TjQJILU2pPpGPYmFDVCTB+7CpvSqSbWlzNHPYWYp+PviT9o22rPJQuQCIcgGxTsdwhZpwGFX7jBqrS3yXZTdx5bF0p+eT2W0Ya/a+tp4IvkgnczGewTvYWiFRBb2ET0bPzxNdhQarPAoFYvvc/RNb4S6QMmBxYLLIvLGRxhDy/Ru9n8BYkmrWw==</source>
+  </file>
+  <file path="lib/auth/User.php" generated-path="lib.auth.User.html" hash="c6c555f878a97496b1e1c3770971e03e" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="3" package="Default">
+      <extends>\BaseTable</extends>
+      <name>User</name>
+      <full_name>\User</full_name>
+      <docblock line="3">
+        <description>A class for managing CRUD database functionality.</description>
+        <long-description>* MODIFIED from standard to put a "created date" in automatically. All children must have a field nicknamed "created".
+
+In your extension of this class, you should fill in the following:
+
+$table_name
+$fields
+$field_nicks_map
+$searchable_nicks
+$sortable_nicks
+$editable_nicks
+
+
+
+Assumption:
+The nickname 'id' will be used to represent the primary key.
+If this is not the case, you can set $constructor_key to the primary key nickname.</long-description>
+      </docblock>
+      <property static="true" visibility="public" line="5" namespace="" package="Default">
+        <name>$table_name</name>
+        <default>"users"</default>
+        <docblock line="5">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="6" namespace="" package="Default">
+        <name>$constructor_key</name>
+        <default>"username"</default>
+        <docblock line="6">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="12" namespace="" package="Default">
+        <name>$login_location</name>
+        <default>"/login"</default>
+        <docblock line="12">
+          <description>The page to redirect to for all logins.</description>
+          <long-description></long-description>
+          <tag name="var" line="12" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="19" namespace="" package="Default">
+        <name>$all_permissions</name>
+        <default>array()</default>
+        <docblock line="19">
+          <description>Loaded when needed, but cached here so
+we don't have to hit the db over and over again.</description>
+          <long-description></long-description>
+          <tag name="var" line="19" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="21" namespace="" package="Default">
+        <name>$fields</name>
+        <default>array("username", "password", "user_token", "user_level", "email", "created")</default>
+        <docblock line="21">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="29" namespace="" package="Default">
+        <name>$field_nicks_map</name>
+        <default>array("username" =&gt; "username", "password" =&gt; "password", "user_token" =&gt; "user_token", "user_perms" =&gt; "user_level", "email" =&gt; "email", "created" =&gt; "created")</default>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="37" namespace="" package="Default">
+        <name>$searchable_nicks</name>
+        <default>array("username", "password", "user_token", "user_perms", "email", "created")</default>
+        <docblock line="37">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="45" namespace="" package="Default">
+        <name>$sortable_nicks</name>
+        <default>array("username", "password", "user_id", "user_perms", "email", "created")</default>
+        <docblock line="45">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="53" namespace="" package="Default">
+        <name>$editable_nicks</name>
+        <default>array("username", "password", "user_id", "user_perms", "email")</default>
+        <docblock line="53">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="69" package="Default">
+        <name>__construct</name>
+        <full_name>\User::__construct()</full_name>
+        <docblock line="69">
+          <description>Starts a session, then continues as normal.</description>
+          <long-description></long-description>
+          <tag name="param" line="69" description="" type="" variable="$id"/>
+          <tag name="param" line="69" description="" type="" variable="$load"/>
+          <tag name="param" line="69" description="" type="" variable="$row"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$id</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$load</name>
+          <default>true</default>
+          <type>mixed</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$row</name>
+          <default>null</default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="81" package="Default">
+        <name>login</name>
+        <full_name>\User::login()</full_name>
+        <docblock line="81">
+          <description>Usage:
+$user = new User($username);
+$user-&gt;login($password_or_token);</description>
+          <long-description></long-description>
+          <tag name="param" line="81" description="" type="" variable="$password"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$password_or_token</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$remember_me</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="110" package="Default">
+        <name>logout</name>
+        <full_name>\User::logout()</full_name>
+        <docblock line="110">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="123" package="Default">
+        <name>getPermissionLabels</name>
+        <full_name>\User::getPermissionLabels()</full_name>
+        <docblock line="123">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="140" package="Default">
+        <name>hasPermission</name>
+        <full_name>\User::hasPermission()</full_name>
+        <docblock line="140">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$permission_mask</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="147" package="Default">
+        <name>loadAllPermissions</name>
+        <full_name>\User::loadAllPermissions()</full_name>
+        <docblock line="147">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="155" package="Default">
+        <name>checkLogin</name>
+        <full_name>\User::checkLogin()</full_name>
+        <docblock line="155">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="202" package="Default">
+        <name>register</name>
+        <full_name>\User::register()</full_name>
+        <docblock line="202">
+          <description>Register a new user.</description>
+          <long-description>Checks to see if the username already exists.
+MD5s the password, creates a token, then creates the record.</long-description>
+          <tag name="param" line="202" description="" type="\unknown_type" variable="$knownData">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$knownData</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="219" package="Default">
+        <name>check_permissions</name>
+        <full_name>\User::check_permissions()</full_name>
+        <docblock line="219">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="249" package="Default">
+        <name>createToken</name>
+        <full_name>\User::createToken()</full_name>
+        <docblock line="249">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$knownData</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="258" package="Default">
+        <name>setAsActiveUser</name>
+        <full_name>\User::setAsActiveUser()</full_name>
+        <docblock line="258">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="3" code="PPC:ERR-50005">No summary for class \User</error>
+      <error line="5" code="PPC:ERR-50007">No summary for property $table_name</error>
+      <error line="6" code="PPC:ERR-50007">No summary for property $constructor_key</error>
+      <error line="21" code="PPC:ERR-50007">No summary for property $fields</error>
+      <error line="29" code="PPC:ERR-50007">No summary for property $field_nicks_map</error>
+      <error line="37" code="PPC:ERR-50007">No summary for property $searchable_nicks</error>
+      <error line="45" code="PPC:ERR-50007">No summary for property $sortable_nicks</error>
+      <error line="53" code="PPC:ERR-50007">No summary for property $editable_nicks</error>
+      <error line="81" code="PPC:ERR-50015">Argument $password_or_token is missing from the Docblock of login()</error>
+      <error line="81" code="PPC:ERR-50015">Argument $remember_me is missing from the Docblock of login()</error>
+      <error line="110" code="PPC:ERR-50008">No summary for method logout()</error>
+      <error line="123" code="PPC:ERR-50008">No summary for method getPermissionLabels()</error>
+      <error line="140" code="PPC:ERR-50015">Argument $permission_mask is missing from the Docblock of hasPermission()</error>
+      <error line="140" code="PPC:ERR-50008">No summary for method hasPermission()</error>
+      <error line="147" code="PPC:ERR-50008">No summary for method loadAllPermissions()</error>
+      <error line="155" code="PPC:ERR-50008">No summary for method checkLogin()</error>
+      <error line="202" code="PPC:ERR-50018">The type for the param tag $knownData in register() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="219" code="PPC:ERR-50008">No summary for method check_permissions()</error>
+      <error line="249" code="PPC:ERR-50015">Argument $knownData is missing from the Docblock of createToken()</error>
+      <error line="249" code="PPC:ERR-50008">No summary for method createToken()</error>
+      <error line="258" code="PPC:ERR-50008">No summary for method setAsActiveUser()</error>
+    </parse_markers>
+    <source>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</source>
+  </file>
+  <file path="lib/om/BaseTable.php" generated-path="lib.om.BaseTable.html" hash="b53ed1775591f5b3f961cc5cbfb20633" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="29" package="ShippingAPI\om">
+      <extends/>
+      <name>BaseTable</name>
+      <full_name>\BaseTable</full_name>
+      <docblock line="29">
+        <description>A class for managing CRUD database functionality.</description>
+        <long-description>* MODIFIED from standard to put a "created date" in automatically. All children must have a field nicknamed "created".
+
+In your extension of this class, you should fill in the following:
+
+$table_name
+$fields
+$field_nicks_map
+$searchable_nicks
+$sortable_nicks
+$editable_nicks
+
+
+
+Assumption:
+The nickname 'id' will be used to represent the primary key.
+If this is not the case, you can set $constructor_key to the primary key nickname.</long-description>
+        <tag name="package" line="29" description="ShippingAPI"/>
+        <tag name="subpackage" line="29" description="om"/>
+        <tag name="author" line="29" description="kenstclair"/>
+      </docblock>
+      <property static="true" visibility="public" line="35" namespace="" package="ShippingAPI\om">
+        <name>$table_name</name>
+        <default>""</default>
+        <docblock line="35">
+          <description>The name of the table in the database. Use to construct queries</description>
+          <long-description></long-description>
+          <tag name="var" line="35" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="57" namespace="" package="ShippingAPI\om">
+        <name>$field_nicks_map</name>
+        <default>array()</default>
+        <docblock line="57">
+          <description>A mapping of nicknames to actual table names, like so:
+array(
+	"id" =&gt; "p_id",
+	"nickname" =&gt; "table_column_name"
+)</description>
+          <long-description>When constructing queries, use static::$field_nicks_map['nickname']
+to represent your field names. This will give you a layer of indirection
+that will allow you to change your database field names without having
+to update all your queries.</long-description>
+          <tag name="var" line="57" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="66" namespace="" package="ShippingAPI\om">
+        <name>$searchable_nicks</name>
+        <default>array()</default>
+        <docblock line="66">
+          <description>A list of fields that can be searched. USE NICKNAMES.</description>
+          <long-description>Implementation note: All searchable nicks should be indexed.</long-description>
+          <tag name="var" line="66" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="72" namespace="" package="ShippingAPI\om">
+        <name>$sortable_nicks</name>
+        <default>array()</default>
+        <docblock line="72">
+          <description>A list of fields that can be sorted. USE NICKNAMES.</description>
+          <long-description></long-description>
+          <tag name="var" line="72" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="78" namespace="" package="ShippingAPI\om">
+        <name>$editable_nicks</name>
+        <default>array()</default>
+        <docblock line="78">
+          <description>A list of fields that can be edited. USE NICKNAMES.</description>
+          <long-description></long-description>
+          <tag name="var" line="78" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" line="80" namespace="" package="ShippingAPI\om">
+        <name>$loaded</name>
+        <default>false</default>
+        <docblock line="80">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="93" namespace="" package="ShippingAPI\om">
+        <name>$constructor_key</name>
+        <default>"id"</default>
+        <docblock line="93">
+          <description>The nickname of the column used to construct a new instance.</description>
+          <long-description>Usually this will be 'id'. You can customize it for different
+primary keys. For example, in things like user accounts tables,
+you may want to change this to 'username'
+
+This should always be a unique column, if not the primary key</long-description>
+          <tag name="var" line="93" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="105" package="ShippingAPI\om">
+        <name>__construct</name>
+        <full_name>\BaseTable::__construct()</full_name>
+        <docblock line="105">
+          <description>Load a database entry by its constructor key.</description>
+          <long-description>Constructor key defaults to 'id', but can be changed in subclasses.
+
+Additional options are for loading presearched data.
+Pass $load=false and $row=array to load a row from
+a record into this object</long-description>
+          <tag name="param" line="105" description="" type="\unknown_type" variable="$id">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$id</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$load</name>
+          <default>true</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$row</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="140" package="ShippingAPI\om">
+        <name>create</name>
+        <full_name>\BaseTable::create()</full_name>
+        <docblock line="140">
+          <description>Create a new database entry</description>
+          <long-description>MODIFIED from standard to put a created date in automatically. All children must have a field nicknamed "created".
+
+Separated from __construct because of a data leak in the previous project that hinged on conditional creation of entries based on input to the function.
+
+Accepts a hash of known values to put into the row, with keys as field nicknames and values as table values.
+
+Assumption:
+An autoincrement primary key will have a nickname 'id'
+
+Assumption:
+If the primary/constructor key is not autoincrement, you will have provided it in the $knowndata</long-description>
+          <tag name="param" line="140" description="&lt;p&gt;array(&quot;field_nickname&quot; =&gt; &quot;value&quot;, etc)&lt;/p&gt;" type="\hash" variable="$knownData">
+            <type link="hash.html">\hash</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$knownData</name>
+          <default></default>
+          <type>\hash</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="183" package="ShippingAPI\om">
+        <name>save</name>
+        <full_name>\BaseTable::save()</full_name>
+        <docblock line="183">
+          <description>Save the values in the object to the db.</description>
+          <long-description>Will throw an error if it thinks that the object hasn't
+had all the attributes loaded and you try to save all fields.
+This will occur when creating the object and populating it with
+data from an externally retrieved record. Since the object didn't create
+the record, it doesn't trust that it has all the object's data in it.
+If it doesn't have all the data, then a save could overwrite valid data
+with an empty field.
+
+The error is bypassed by specifying which fields you want
+to save. If you can specify the fields you want to save, then
+you've probably loaded them.</long-description>
+          <tag name="param" line="183" description="&lt;p&gt;field nicknames&lt;/p&gt;" type="array" variable="$fields_to_save">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$fields_to_save</name>
+          <default>null</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="217" package="ShippingAPI\om">
+        <name>destroy</name>
+        <full_name>\BaseTable::destroy()</full_name>
+        <docblock line="217">
+          <description>Destroy the record.</description>
+          <long-description>Deletes the record from the database.
+
+Override to create a soft-delete.</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="236" package="ShippingAPI\om">
+        <name>set</name>
+        <full_name>\BaseTable::set()</full_name>
+        <docblock line="236">
+          <description>Set the value of a field, by nickname.</description>
+          <long-description>Automatically saves the field to the db.
+
+Can be set "softly" by setting the $save param to false.
+Data will be set in this object, but not saved in the db.
+You must then manually call $this-&gt;save() to save the data to the db.</long-description>
+          <tag name="param" line="236" description="" type="" variable="$nick"/>
+          <tag name="param" line="236" description="" type="" variable="$value"/>
+          <tag name="param" line="236" description="&lt;p&gt;if omitted, the value is saved to the database. if anything other than boolean true is passed, it will not save to the db.&lt;/p&gt;" type="boolean" variable="$save">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$nick</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$save</name>
+          <default>true</default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="271" package="ShippingAPI\om">
+        <name>search</name>
+        <full_name>\BaseTable::search()</full_name>
+        <docblock line="271">
+          <description>Basic search for records</description>
+          <long-description>This function allows two basic types of search:
+1) The most generic search -&gt; search all $searchable_nicks for a phrase that contains the search term. (field LIKE '%term%' OR field LIKE '%term%')
+2) The most restrictive search -&gt; search only the listed fields for the exact values provided. (field = term AND field = term)
+
+All other implementations need to be written for each class. Please do not let your SQL
+queries creep out of the objects and into the controllers.
+
+Returns an array of instantiated objects.
+**An empty result set will return an empty array.
+
+-krs Should I write this? Or leave most of the searching to be written independently so the sql doesn't creep into the controller.</long-description>
+          <tag name="param" line="271" description="" type="\unknown_type" variable="$searchHash">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$searchHashOrTerm</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="284" package="ShippingAPI\om">
+        <name>getAll</name>
+        <full_name>\BaseTable::getAll()</full_name>
+        <docblock line="284">
+          <description>retrieve all rows from the table</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="299" package="ShippingAPI\om">
+        <name>targetedSearch</name>
+        <full_name>\BaseTable::targetedSearch()</full_name>
+        <docblock line="299">
+          <description>Search only the listed fields for the exact values</description>
+          <long-description></long-description>
+          <tag name="param" line="299" description="" type="\unknown_type" variable="$searchHash">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$searchHash</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="319" package="ShippingAPI\om">
+        <name>genericSearch</name>
+        <full_name>\BaseTable::genericSearch()</full_name>
+        <docblock line="319">
+          <description>Search any of the searchable fields for the search term.</description>
+          <long-description></long-description>
+          <tag name="param" line="319" description="" type="" variable="$searchTerm"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$searchTerm</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="343" package="ShippingAPI\om">
+        <name>processQueryToObjects</name>
+        <full_name>\BaseTable::processQueryToObjects()</full_name>
+        <docblock line="343">
+          <description>A utility function to hold the frequently repeated
+code that happens when you write a simple query
+and need it processed to objects.</description>
+          <long-description>Since it is marking the objects as loaded, please make
+sure that your query is "SELECT *..." if you are using
+this to load the objects. Objects that are incorrectly
+marked as loaded can destroy data in the database when
+saved.</long-description>
+          <tag name="param" line="343" description="" type="\unknown_type" variable="$query">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$query</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="358" package="ShippingAPI\om">
+        <name>constructFromRecord</name>
+        <full_name>\BaseTable::constructFromRecord()</full_name>
+        <docblock line="358">
+          <description>Process an individual search result row into an object</description>
+          <long-description>Left public because of scoping issues when passing functions around</long-description>
+          <tag name="param" line="358" description="" type="\unknown_type" variable="$row">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$row</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="371" package="ShippingAPI\om">
+        <name>markLoaded</name>
+        <full_name>\BaseTable::markLoaded()</full_name>
+        <docblock line="371">
+          <description>Mark the objects as properly loaded.</description>
+          <long-description>Call this only when you have set all of the attributes on
+the object from the database.</long-description>
+          <tag name="param" line="371" description="" type="\unknown_type" variable="$objs">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$objs</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="382" package="ShippingAPI\om">
+        <name>nicks_to_fields</name>
+        <full_name>\BaseTable::nicks_to_fields()</full_name>
+        <docblock line="382">
+          <description>Returns an array of the actual field names, given an array of the nicknames.</description>
+          <long-description></long-description>
+          <tag name="param" line="382" description="" type="\unknown_type" variable="$arr">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="80" code="PPC:ERR-50007">No summary for property $loaded</error>
+      <error line="105" code="PPC:ERR-50018">The type for the param tag $id in __construct() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="105" code="PPC:ERR-50015">Argument $load is missing from the Docblock of __construct()</error>
+      <error line="105" code="PPC:ERR-50015">Argument $row is missing from the Docblock of __construct()</error>
+      <error line="271" code="PPC:ERR-50018">The type for the param tag $searchHash in search() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="271" code="PPC:ERR-50015">Argument $searchHashOrTerm is missing from the Docblock of search()</error>
+      <error line="299" code="PPC:ERR-50018">The type for the param tag $searchHash in targetedSearch() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="343" code="PPC:ERR-50018">The type for the param tag $query in processQueryToObjects() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="358" code="PPC:ERR-50018">The type for the param tag $row in constructFromRecord() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="371" code="PPC:ERR-50018">The type for the param tag $objs in markLoaded() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="382" code="PPC:ERR-50018">The type for the param tag $arr in nicks_to_fields() is either "type" or "unknown"; isn't this an IDE default?</error>
+    </parse_markers>
+    <source>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</source>
+  </file>
+  <file path="lib/om/Example.php" generated-path="lib.om.Example.html" hash="dc6e7495c710067cb9194d7738dcd9e8" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="3" package="Default">
+      <extends>\BaseTable</extends>
+      <name>Example</name>
+      <full_name>\Example</full_name>
+      <docblock line="3">
+        <description>A class for managing CRUD database functionality.</description>
+        <long-description>* MODIFIED from standard to put a "created date" in automatically. All children must have a field nicknamed "created".
+
+In your extension of this class, you should fill in the following:
+
+$table_name
+$fields
+$field_nicks_map
+$searchable_nicks
+$sortable_nicks
+$editable_nicks
+
+
+
+Assumption:
+The nickname 'id' will be used to represent the primary key.
+If this is not the case, you can set $constructor_key to the primary key nickname.</long-description>
+      </docblock>
+      <property static="true" visibility="public" line="10" namespace="" package="Default">
+        <name>$table_name</name>
+        <default>"example"</default>
+        <docblock line="10">
+          <description>The name of the table in the database. Use to construct queries</description>
+          <long-description></long-description>
+          <tag name="var" line="10" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="26" namespace="" package="Default">
+        <name>$field_nicks_map</name>
+        <default>array("id" =&gt; "e_id", "title" =&gt; "e_title", "text" =&gt; "e_text", "created" =&gt; "e_created")</default>
+        <docblock line="26">
+          <description>A mapping of nicknames to actual table names, like so:
+array(
+	"id" =&gt; "p_id",
+	"nickname" =&gt; "table_column_name"
+)</description>
+          <long-description>When constructing queries, use static::$field_nicks_map['nickname']
+to represent your field names. This will give you a layer of indirection
+that will allow you to change your database field names without having
+to update all your queries.</long-description>
+          <tag name="var" line="26" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="40" namespace="" package="Default">
+        <name>$searchable_nicks</name>
+        <default>array("id", "title", "text", "created")</default>
+        <docblock line="40">
+          <description>A list of fields that can be searched. USE NICKNAMES.</description>
+          <long-description>Implementation note: All searchable nicks should be indexed.</long-description>
+          <tag name="var" line="40" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="51" namespace="" package="Default">
+        <name>$sortable_nicks</name>
+        <default>array("id", "title", "text", "created")</default>
+        <docblock line="51">
+          <description>A list of fields that can be sorted. USE NICKNAMES.</description>
+          <long-description></long-description>
+          <tag name="var" line="51" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="62" namespace="" package="Default">
+        <name>$editable_nicks</name>
+        <default>array("title", "text")</default>
+        <docblock line="62">
+          <description>A list of fields that can be edited. USE NICKNAMES.</description>
+          <long-description></long-description>
+          <tag name="var" line="62" description="" type="\unknown_type" variable="">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="71" package="Default">
+        <name>getSpecificQueryThing</name>
+        <full_name>\Example::getSpecificQueryThing()</full_name>
+        <docblock line="71">
+          <description>An example new query using the tools of BaseTable</description>
+          <long-description></long-description>
+          <tag name="return" line="71" description="" type="\unknown">
+            <type link="unknown.html">\unknown</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="3" code="PPC:ERR-50005">No summary for class \Example</error>
+    </parse_markers>
+    <source>eJy9VVFv2jAQfk5+xSmiAioE72zd1lWpVpV2aunUh6lCJjmIh7Ez2ymgqf99ZzsByrpV28NekH25+/x939nH2/dlUcZxJpgxkK7ZshQIuLYocwMfmcE7NhX4I47iOBocH8cRHMNdgSDZEkHNwNLauhTg0m9yRluq68MXQ58UZEoaq6vMwvcKNUfjMT48Mg2VXEi1khO7KdFFB3FkLLM8g5bHnPhTTiDBQCx5Qzy2NE5hycqSy7njIXm2cNnGHckyWzFR8/LRHgi+QDBq6EuZ1mzT8cso4XkCJ+8gKSe06tXBBi98CmwyJaql9KQSn9Z1v351X6DcKXWcarE9qMiGoGo4bM04inziwM2E2H9tN+e0HzwOkddYajQoLWxUpcFXBBF9cp4bWHEhYM4f0SUAA8E2qJ0HXOZcIx2vZAArmA3ZTAi18umuIQWTcwzoTbf2j6ESW6jKQsEeSUnDqyopGR1UKK0F9rcevNbSA+3U16YNux5g3YMosdwKbIJhE+J0Obdht/bRTCOR24I024iuS/fg0ghurHPL0zHBpIxJmFKbkOmswJzu7jiF64uzy+vTq3S8k3jhbuGSesOcySCVxSGckiOhMtw3JxAMOUiGTt27yHFNmH/yad+mHVTw6tCnPXd2hjwz4e80K21fVvwqUar8bzQx5/9I01X+huYL9A4oSahHD0hc+Su/oQft3rcffEoJ4whvB2UgpNFWWjac6mdQVlNBfGpas0r6hwpztOMSMz7j2Y2Dpycu550uTdyoFc6j+TdOR+nZHUGf336+ggT6u4myNyj74JTA/af0Nn2e9MvYcXLbD03F6OIyhfZRLfWoDW7QRo6B/1+opzAxnWT0/DGf+HDHeRUNBqCrMPo93R4wmcNMaUCWFaDVqrf3F0DNVNNvNKPADRg3s6w7hmKuM+Ob0XDoUTqtBsw3a8ejB+0t2rlWy1vMlM7bXc+lwWl0L5lejBTLMe/4T91aVt0fH6PQU/z0EwPIJHg=</source>
+  </file>
+  <file path="lib/util/BENCHMARK.php" generated-path="lib.util.BENCHMARK.html" hash="cabff54f2e31b3aad81eea14ee14d9c5" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="18" package="Default">
+      <extends/>
+      <name>BENCHMARK</name>
+      <full_name>\BENCHMARK</full_name>
+      <docblock line="18">
+        <description>A class for easy benchmarking of sections of a page.</description>
+        <long-description>Activate to run benchmarks:
+BENCHMARK::activate();
+
+Create benchmark points with
+BENCHMARK::createPoint($desc);
+
+Then print the report of each point by calling:
+BENCHMARK::createReport();</long-description>
+        <tag name="author" line="18" description="kenstclair"/>
+      </docblock>
+      <property static="true" visibility="public" line="19" namespace="" package="Default">
+        <name>$active</name>
+        <default>false</default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="20" namespace="" package="Default">
+        <name>$points</name>
+        <default>array()</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="22" package="Default">
+        <name>activate</name>
+        <full_name>\BENCHMARK::activate()</full_name>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="26" package="Default">
+        <name>deactivate</name>
+        <full_name>\BENCHMARK::deactivate()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="30" package="Default">
+        <name>createPoint</name>
+        <full_name>\BENCHMARK::createPoint()</full_name>
+        <docblock line="30">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$description</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="40" package="Default">
+        <name>createReport</name>
+        <full_name>\BENCHMARK::createReport()</full_name>
+        <docblock line="40">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="19" code="PPC:ERR-50007">No summary for property $active</error>
+      <error line="20" code="PPC:ERR-50007">No summary for property $points</error>
+      <error line="22" code="PPC:ERR-50008">No summary for method activate()</error>
+      <error line="26" code="PPC:ERR-50008">No summary for method deactivate()</error>
+      <error line="30" code="PPC:ERR-50015">Argument $description is missing from the Docblock of createPoint()</error>
+      <error line="30" code="PPC:ERR-50008">No summary for method createPoint()</error>
+      <error line="40" code="PPC:ERR-50008">No summary for method createReport()</error>
+    </parse_markers>
+    <source>eJydVO+L00AQ/Zz8FWMtXFtO630S0qT1PARBFDn8dhTZJpvLculm2d2oQfq/38xuftRYeyqUNrvvzZuZN5PGG1WoMFwuFiEs4BrSkhkDeaWBM9PAjsu02DP9IOQ9VDkYnlpRSUPPDBS75y+BAl0wQt+Y5WAr0LUcYk1E8Nt3n27ef7y+/RBFrGXO5qsu+EZzCu1jQFVCWgPfhS1G0amjfiZ8Ns24SQeVLwWXoDQiYAsOmqtKW6qVs7TwkrBrIGVliQ2Ny/LCty7oqLQ3rLYFGvLApbHoj9B4i59l6M3qFeBnGBjLrEhh6lrkkEDOSsNXA9D2lQDTmjWUJggDVe9KBFtOXkvnMgw+oXKrEEWDttU1SR/OSGT8KZGuwHMqv1muhSLASYp89mwkO0frba0lygZTbLRvF8/B5EhgAskajhUvHcOKPXfQXqS6otOMep0jSIYNXXg377aYgPIQ5jN3x6e76ub9N624dFeYbFzAq63DcR+s37KknfQV3W/W+BUb25ScnoLn/Zp/bVfUZpdw4ragooJAsSyjfYXX6gfpUVdBcFrJR2TCqJI1EchK8j4kXvY1xJbtSg4iSyZjiYnHtSs1tsX6aDzxEs/dPc3llwteMmV4BkbIlAOZ4d+5M6Rc6DELf13ueINf+E9E7+5sZDgw0xrs5oYOdwVjjsw/oEDiOXcXRy1cbFeblrnsqCdjqL1/JMMLGHbgvxX84vwx3PnjzDm1cDTsg9s55NGMHfUQHh4BnmjDlw==</source>
+  </file>
+  <file path="lib/util/common.php" generated-path="lib.util.common.html" hash="4c0e11f86ddccf93a1be90c19ceba12d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <function namespace="" line="3" package="Default">
+      <name>myflush</name>
+      <full_name>\myflush()</full_name>
+      <docblock line="3">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </function>
+    <function namespace="" line="14" package="Default">
+      <name>curPageURL</name>
+      <full_name>\curPageURL()</full_name>
+      <docblock line="14">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </function>
+    <function namespace="" line="25" package="Default">
+      <name>getRealIpAddr</name>
+      <full_name>\getRealIpAddr()</full_name>
+      <docblock line="25">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </function>
+    <function namespace="" line="43" package="Default">
+      <name>array_remove</name>
+      <full_name>\array_remove()</full_name>
+      <docblock line="43">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$array</name>
+        <default></default>
+        <type/>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$toRemove</name>
+        <default></default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="" line="52" package="Default">
+      <name>downloadFile</name>
+      <full_name>\downloadFile()</full_name>
+      <docblock line="52">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$http_source</name>
+        <default></default>
+        <type/>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$local_destination</name>
+        <default></default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="" line="68" package="Default">
+      <name>retrieveURLContents</name>
+      <full_name>\retrieveURLContents()</full_name>
+      <docblock line="68">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$http_source</name>
+        <default></default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="" line="83" package="Default">
+      <name>POSTcURL</name>
+      <full_name>\POSTcURL()</full_name>
+      <docblock line="83">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$http_source</name>
+        <default></default>
+        <type/>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$paramsArr</name>
+        <default></default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="" line="121" package="Default">
+      <name>array_concat</name>
+      <full_name>\array_concat()</full_name>
+      <docblock line="121">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$arr1</name>
+        <default></default>
+        <type/>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$arr2</name>
+        <default></default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="" line="135" package="Default">
+      <name>recursive_array_eq_assoc</name>
+      <full_name>\recursive_array_eq_assoc()</full_name>
+      <docblock line="135">
+        <description>works for numerically indexed arrays too</description>
+        <long-description></long-description>
+        <tag name="param" line="135" description="" type="\unknown_type" variable="$arr1">
+          <type link="unknown_type.html">\unknown_type</type>
+        </tag>
+        <tag name="param" line="135" description="" type="\unknown_type" variable="$arr2">
+          <type link="unknown_type.html">\unknown_type</type>
+        </tag>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$arr1</name>
+        <default></default>
+        <type>\unknown_type</type>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$arr2</name>
+        <default></default>
+        <type>\unknown_type</type>
+      </argument>
+    </function>
+    <function namespace="" line="160" package="Default">
+      <name>array_exclude_keys</name>
+      <full_name>\array_exclude_keys()</full_name>
+      <docblock line="160">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$arr</name>
+        <default></default>
+        <type/>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$exclusion_set</name>
+        <default></default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="" line="181" package="Default">
+      <name>extract_only</name>
+      <full_name>\extract_only()</full_name>
+      <docblock line="181">
+        <description>A safe version of extract that will only extract the variables you specify.</description>
+        <long-description>You are also given the option to pass in a function that cleans or pre-processes
+the inputs before they are stored.</long-description>
+        <tag name="param" line="181" description="&lt;p&gt;an array of variable names that you want to extract&lt;/p&gt;" type="\unknown_type" variable="$allowed">
+          <type link="unknown_type.html">\unknown_type</type>
+        </tag>
+        <tag name="param" line="181" description="&lt;p&gt;an array of key=&gt;values where the keys are the variable names you want to extract (like $_GET/$_POST)&lt;/p&gt;" type="\unknown_type" variable="$from">
+          <type link="unknown_type.html">\unknown_type</type>
+        </tag>
+        <tag name="param" line="181" description="&lt;p&gt;an optional function that will be run on every input.&lt;/p&gt;" type="\unknown_type" variable="$func">
+          <type link="unknown_type.html">\unknown_type</type>
+        </tag>
+        <tag name="author" line="181" description="kenstclair"/>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$allowed</name>
+        <default></default>
+        <type>\unknown_type</type>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$from</name>
+        <default></default>
+        <type>\unknown_type</type>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$func</name>
+        <default>null</default>
+        <type>\unknown_type</type>
+      </argument>
+    </function>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="3" code="PPC:ERR-50011">No summary for function \myflush()</error>
+      <error line="14" code="PPC:ERR-50011">No summary for function \curPageURL()</error>
+      <error line="25" code="PPC:ERR-50011">No summary for function \getRealIpAddr()</error>
+      <error line="43" code="PPC:ERR-50015">Argument $array is missing from the Docblock of \array_remove()</error>
+      <error line="43" code="PPC:ERR-50015">Argument $toRemove is missing from the Docblock of \array_remove()</error>
+      <error line="43" code="PPC:ERR-50011">No summary for function \array_remove()</error>
+      <error line="52" code="PPC:ERR-50015">Argument $http_source is missing from the Docblock of \downloadFile()</error>
+      <error line="52" code="PPC:ERR-50015">Argument $local_destination is missing from the Docblock of \downloadFile()</error>
+      <error line="52" code="PPC:ERR-50011">No summary for function \downloadFile()</error>
+      <error line="68" code="PPC:ERR-50015">Argument $http_source is missing from the Docblock of \retrieveURLContents()</error>
+      <error line="68" code="PPC:ERR-50011">No summary for function \retrieveURLContents()</error>
+      <error line="83" code="PPC:ERR-50015">Argument $http_source is missing from the Docblock of \POSTcURL()</error>
+      <error line="83" code="PPC:ERR-50015">Argument $paramsArr is missing from the Docblock of \POSTcURL()</error>
+      <error line="83" code="PPC:ERR-50011">No summary for function \POSTcURL()</error>
+      <error line="121" code="PPC:ERR-50015">Argument $arr1 is missing from the Docblock of \array_concat()</error>
+      <error line="121" code="PPC:ERR-50015">Argument $arr2 is missing from the Docblock of \array_concat()</error>
+      <error line="121" code="PPC:ERR-50011">No summary for function \array_concat()</error>
+      <error line="135" code="PPC:ERR-50018">The type for the param tag $arr1 in \recursive_array_eq_assoc() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="135" code="PPC:ERR-50018">The type for the param tag $arr2 in \recursive_array_eq_assoc() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="160" code="PPC:ERR-50015">Argument $arr is missing from the Docblock of \array_exclude_keys()</error>
+      <error line="160" code="PPC:ERR-50015">Argument $exclusion_set is missing from the Docblock of \array_exclude_keys()</error>
+      <error line="160" code="PPC:ERR-50011">No summary for function \array_exclude_keys()</error>
+      <error line="181" code="PPC:ERR-50018">The type for the param tag $allowed in \extract_only() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="181" code="PPC:ERR-50018">The type for the param tag $from in \extract_only() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="181" code="PPC:ERR-50018">The type for the param tag $func in \extract_only() is either "type" or "unknown"; isn't this an IDE default?</error>
+    </parse_markers>
+    <source>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</source>
+  </file>
+  <file path="lib/util/DEBUG.php" generated-path="lib.util.DEBUG.html" hash="4671b66c3a21d768b7e4d79cd3bee1f1" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="18" package="Default">
+      <extends/>
+      <name>DEBUG</name>
+      <full_name>\DEBUG</full_name>
+      <docblock line="18">
+        <description>A class for conditionally printing output to the screen. The debug class
+allows you to leave important debug statements in the code while
+centrally deciding whether they will print their output or not.</description>
+        <long-description>Output can also be buffered and then printed when desired.
+
+All of the functions in Debug work only if the class has been activated
+by a call to
+DEBUG::activate();</long-description>
+        <tag name="author" line="18" description="kenstclair"/>
+      </docblock>
+      <property static="true" visibility="public" line="19" namespace="" package="Default">
+        <name>$debug</name>
+        <default>false</default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="20" namespace="" package="Default">
+        <name>$buffer</name>
+        <default>false</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="21" namespace="" package="Default">
+        <name>$thebuffer</name>
+        <default>array()</default>
+        <docblock line="21">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="22" namespace="" package="Default">
+        <name>$newline</name>
+        <default>"&lt;br /&gt;\n"</default>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="23" namespace="" package="Default">
+        <name>$outputStream</name>
+        <default>"php://output"</default>
+        <docblock line="23">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="24" namespace="" package="Default">
+        <name>$outputHandle</name>
+        <default>null</default>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="25" namespace="" package="Default">
+        <name>$writeWrapper</name>
+        <default>null</default>
+        <docblock line="25">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="26" namespace="" package="Default">
+        <name>$label_wrapper_open</name>
+        <default>"&lt;b&gt;"</default>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="27" namespace="" package="Default">
+        <name>$label_wrapper_close</name>
+        <default>"&lt;/b&gt;"</default>
+        <docblock line="27">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="28" namespace="" package="Default">
+        <name>$body_wrapper_open</name>
+        <default>"&lt;pre&gt;"</default>
+        <docblock line="28">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="29" namespace="" package="Default">
+        <name>$body_wrapper_close</name>
+        <default>"&lt;/pre&gt;"</default>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="31" package="Default">
+        <name>setStyle</name>
+        <full_name>\DEBUG::setStyle()</full_name>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$str</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="53" package="Default">
+        <name>setNewLine</name>
+        <full_name>\DEBUG::setNewLine()</full_name>
+        <docblock line="53">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$str</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="57" package="Default">
+        <name>setLabelWrapperOpen</name>
+        <full_name>\DEBUG::setLabelWrapperOpen()</full_name>
+        <docblock line="57">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$str</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="60" package="Default">
+        <name>setLabelWrapperClose</name>
+        <full_name>\DEBUG::setLabelWrapperClose()</full_name>
+        <docblock line="60">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$str</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="63" package="Default">
+        <name>setBodyWrapperOpen</name>
+        <full_name>\DEBUG::setBodyWrapperOpen()</full_name>
+        <docblock line="63">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$str</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="66" package="Default">
+        <name>setBodyWrapperClose</name>
+        <full_name>\DEBUG::setBodyWrapperClose()</full_name>
+        <docblock line="66">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$str</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="73" package="Default">
+        <name>setOutputStream</name>
+        <full_name>\DEBUG::setOutputStream()</full_name>
+        <docblock line="73">
+          <description>Choose the output stream. Allows you to print
+to a log instead of standard output</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$outputStream</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$command</name>
+          <default>"w"</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="80" package="Default">
+        <name>setWriteWrapper</name>
+        <full_name>\DEBUG::setWriteWrapper()</full_name>
+        <docblock line="80">
+          <description>A function to wrap write output</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$func</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="88" package="Default">
+        <name>writeln</name>
+        <full_name>\DEBUG::writeln()</full_name>
+        <docblock line="88">
+          <description>print the input and a newline</description>
+          <long-description></long-description>
+          <tag name="param" line="88" description="" type="\unknown_type" variable="$string">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="96" package="Default">
+        <name>write</name>
+        <full_name>\DEBUG::write()</full_name>
+        <docblock line="96">
+          <description>print the input</description>
+          <long-description></long-description>
+          <tag name="param" line="96" description="" type="\unknown_type" variable="$string">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="119" package="Default">
+        <name>activate</name>
+        <full_name>\DEBUG::activate()</full_name>
+        <docblock line="119">
+          <description>Activate debugging output by printing all debug statements</description>
+          <long-description></long-description>
+          <tag name="param" line="119" description="&lt;ul&gt;&#10;&lt;li&gt;[true|false] to buffer the output instead of printing inline.&lt;/li&gt;&#10;&lt;/ul&gt;" type="\unknown_type" variable="$buffer">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$buffer</name>
+          <default>false</default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="131" package="Default">
+        <name>deactivate</name>
+        <full_name>\DEBUG::deactivate()</full_name>
+        <docblock line="131">
+          <description>Deactivate debugging output by supressing all debug statements</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="139" package="Default">
+        <name>bufferOutput</name>
+        <full_name>\DEBUG::bufferOutput()</full_name>
+        <docblock line="139">
+          <description>Buffer the output of all debug statements. To view the buffer, use printBuffer.</description>
+          <long-description></long-description>
+          <tag name="param" line="139" description="" type="\unknown_type" variable="$buffer">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$buffer</name>
+          <default>true</default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="149" package="Default">
+        <name>clearBuffer</name>
+        <full_name>\DEBUG::clearBuffer()</full_name>
+        <docblock line="149">
+          <description>Empties the buffer</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="156" package="Default">
+        <name>printBuffer</name>
+        <full_name>\DEBUG::printBuffer()</full_name>
+        <docblock line="156">
+          <description>Dumps the buffer to the output</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="166" package="Default">
+        <name>labelled_var_dump</name>
+        <full_name>\DEBUG::labelled_var_dump()</full_name>
+        <docblock line="166">
+          <description>same as formatted_var_dump, only it puts a bold label in front</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$label</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$var</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$func</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="177" package="Default">
+        <name>formatted_var_dump</name>
+        <full_name>\DEBUG::formatted_var_dump()</full_name>
+        <docblock line="177">
+          <description>same as var_dump, only it indents the children of objects and arrays</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$var</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$func</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="195" package="Default">
+        <name>labelled_print_r</name>
+        <full_name>\DEBUG::labelled_print_r()</full_name>
+        <docblock line="195">
+          <description>same as formatted_var_dump, only it puts a bold label in front</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$label</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$var</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="206" package="Default">
+        <name>formatted_print_r</name>
+        <full_name>\DEBUG::formatted_print_r()</full_name>
+        <docblock line="206">
+          <description>same as var_dump, only it indents the children of objects and arrays</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$var</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="216" package="Default">
+        <name>lvar_dump</name>
+        <full_name>\DEBUG::lvar_dump()</full_name>
+        <docblock line="216">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$label</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$var</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$func</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="217" package="Default">
+        <name>fvar_dump</name>
+        <full_name>\DEBUG::fvar_dump()</full_name>
+        <docblock line="217">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$var</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$func</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="218" package="Default">
+        <name>lprint_r</name>
+        <full_name>\DEBUG::lprint_r()</full_name>
+        <docblock line="218">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$label</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$var</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="219" package="Default">
+        <name>fprint_r</name>
+        <full_name>\DEBUG::fprint_r()</full_name>
+        <docblock line="219">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$var</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="229" package="Default">
+        <name>rollcall</name>
+        <full_name>\DEBUG::rollcall()</full_name>
+        <docblock line="229">
+          <description>Gets the stack data about the function
+you call from. This will print out the arguments,
+function, class, file and line number.</description>
+          <long-description>Good for making sure all your arguments are present.</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="241" package="Default">
+        <name>getBacktrace</name>
+        <full_name>\DEBUG::getBacktrace()</full_name>
+        <docblock line="241">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <markers>
+      <todo line="124">checek to see if memory limit is above this before setting</todo>
+      <todo line="143">checek to see if memory limit is above this before setting</todo>
+    </markers>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="19" code="PPC:ERR-50007">No summary for property $debug</error>
+      <error line="20" code="PPC:ERR-50007">No summary for property $buffer</error>
+      <error line="21" code="PPC:ERR-50007">No summary for property $thebuffer</error>
+      <error line="22" code="PPC:ERR-50007">No summary for property $newline</error>
+      <error line="23" code="PPC:ERR-50007">No summary for property $outputStream</error>
+      <error line="24" code="PPC:ERR-50007">No summary for property $outputHandle</error>
+      <error line="25" code="PPC:ERR-50007">No summary for property $writeWrapper</error>
+      <error line="26" code="PPC:ERR-50007">No summary for property $label_wrapper_open</error>
+      <error line="27" code="PPC:ERR-50007">No summary for property $label_wrapper_close</error>
+      <error line="28" code="PPC:ERR-50007">No summary for property $body_wrapper_open</error>
+      <error line="29" code="PPC:ERR-50007">No summary for property $body_wrapper_close</error>
+      <error line="31" code="PPC:ERR-50015">Argument $str is missing from the Docblock of setStyle()</error>
+      <error line="31" code="PPC:ERR-50008">No summary for method setStyle()</error>
+      <error line="53" code="PPC:ERR-50015">Argument $str is missing from the Docblock of setNewLine()</error>
+      <error line="53" code="PPC:ERR-50008">No summary for method setNewLine()</error>
+      <error line="57" code="PPC:ERR-50015">Argument $str is missing from the Docblock of setLabelWrapperOpen()</error>
+      <error line="57" code="PPC:ERR-50008">No summary for method setLabelWrapperOpen()</error>
+      <error line="60" code="PPC:ERR-50015">Argument $str is missing from the Docblock of setLabelWrapperClose()</error>
+      <error line="60" code="PPC:ERR-50008">No summary for method setLabelWrapperClose()</error>
+      <error line="63" code="PPC:ERR-50015">Argument $str is missing from the Docblock of setBodyWrapperOpen()</error>
+      <error line="63" code="PPC:ERR-50008">No summary for method setBodyWrapperOpen()</error>
+      <error line="66" code="PPC:ERR-50015">Argument $str is missing from the Docblock of setBodyWrapperClose()</error>
+      <error line="66" code="PPC:ERR-50008">No summary for method setBodyWrapperClose()</error>
+      <error line="73" code="PPC:ERR-50015">Argument $outputStream is missing from the Docblock of setOutputStream()</error>
+      <error line="73" code="PPC:ERR-50015">Argument $command is missing from the Docblock of setOutputStream()</error>
+      <error line="80" code="PPC:ERR-50015">Argument $func is missing from the Docblock of setWriteWrapper()</error>
+      <error line="88" code="PPC:ERR-50018">The type for the param tag $string in writeln() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="96" code="PPC:ERR-50018">The type for the param tag $string in write() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="119" code="PPC:ERR-50018">The type for the param tag $buffer in activate() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="139" code="PPC:ERR-50018">The type for the param tag $buffer in bufferOutput() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="166" code="PPC:ERR-50015">Argument $label is missing from the Docblock of labelled_var_dump()</error>
+      <error line="166" code="PPC:ERR-50015">Argument $var is missing from the Docblock of labelled_var_dump()</error>
+      <error line="166" code="PPC:ERR-50015">Argument $func is missing from the Docblock of labelled_var_dump()</error>
+      <error line="177" code="PPC:ERR-50015">Argument $var is missing from the Docblock of formatted_var_dump()</error>
+      <error line="177" code="PPC:ERR-50015">Argument $func is missing from the Docblock of formatted_var_dump()</error>
+      <error line="195" code="PPC:ERR-50015">Argument $label is missing from the Docblock of labelled_print_r()</error>
+      <error line="195" code="PPC:ERR-50015">Argument $var is missing from the Docblock of labelled_print_r()</error>
+      <error line="206" code="PPC:ERR-50015">Argument $var is missing from the Docblock of formatted_print_r()</error>
+      <error line="216" code="PPC:ERR-50015">Argument $label is missing from the Docblock of lvar_dump()</error>
+      <error line="216" code="PPC:ERR-50015">Argument $var is missing from the Docblock of lvar_dump()</error>
+      <error line="216" code="PPC:ERR-50015">Argument $func is missing from the Docblock of lvar_dump()</error>
+      <error line="216" code="PPC:ERR-50008">No summary for method lvar_dump()</error>
+      <error line="217" code="PPC:ERR-50015">Argument $var is missing from the Docblock of fvar_dump()</error>
+      <error line="217" code="PPC:ERR-50015">Argument $func is missing from the Docblock of fvar_dump()</error>
+      <error line="217" code="PPC:ERR-50008">No summary for method fvar_dump()</error>
+      <error line="218" code="PPC:ERR-50015">Argument $label is missing from the Docblock of lprint_r()</error>
+      <error line="218" code="PPC:ERR-50015">Argument $var is missing from the Docblock of lprint_r()</error>
+      <error line="218" code="PPC:ERR-50008">No summary for method lprint_r()</error>
+      <error line="219" code="PPC:ERR-50015">Argument $var is missing from the Docblock of fprint_r()</error>
+      <error line="219" code="PPC:ERR-50008">No summary for method fprint_r()</error>
+      <error line="241" code="PPC:ERR-50008">No summary for method getBacktrace()</error>
+    </parse_markers>
+    <source>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</source>
+  </file>
+  <file path="lib/util/ERROR.php" generated-path="lib.util.ERROR.html" hash="bec62b4e36990cd1aafeb26f89783c0d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="10" package="Default">
+      <extends>\DEBUG</extends>
+      <name>ERROR</name>
+      <full_name>\ERROR</full_name>
+      <docblock line="10">
+        <description>Error function like debug, but includes additional output
+and can throw errors to logs, stop execution, etc.</description>
+        <long-description>Output can also be buffered and then printed when desired.
+
+All of the functions in Debug work only if the class has been activated
+by a call to
+DEBUG::activate();</long-description>
+        <tag name="author" line="10" description="kenstclair"/>
+      </docblock>
+      <property static="true" visibility="public" line="12" namespace="" package="Default">
+        <name>$debug</name>
+        <default>false</default>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="13" namespace="" package="Default">
+        <name>$buffer</name>
+        <default>false</default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="14" namespace="" package="Default">
+        <name>$thebuffer</name>
+        <default>array()</default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="15" namespace="" package="Default">
+        <name>$newline</name>
+        <default>"&lt;br /&gt;\n"</default>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="16" namespace="" package="Default">
+        <name>$outputStream</name>
+        <default>"php://output"</default>
+        <docblock line="16">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="17" namespace="" package="Default">
+        <name>$outputHandle</name>
+        <default>null</default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="18" namespace="" package="Default">
+        <name>$writeWrapper</name>
+        <default>null</default>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="19" namespace="" package="Default">
+        <name>$label_wrapper_open</name>
+        <default>"&lt;b&gt;"</default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="20" namespace="" package="Default">
+        <name>$label_wrapper_close</name>
+        <default>"&lt;/b&gt;"</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="21" namespace="" package="Default">
+        <name>$body_wrapper_open</name>
+        <default>"&lt;pre&gt;"</default>
+        <docblock line="21">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="22" namespace="" package="Default">
+        <name>$body_wrapper_close</name>
+        <default>"&lt;/pre&gt;"</default>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="24" package="Default">
+        <name>writeln</name>
+        <full_name>\ERROR::writeln()</full_name>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$e</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="30" package="Default">
+        <name>write</name>
+        <full_name>\ERROR::write()</full_name>
+        <docblock line="30">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="42" package="Default">
+        <name>throwError</name>
+        <full_name>\ERROR::throwError()</full_name>
+        <docblock line="42">
+          <description>will only print output if the class has been activated, but will
+always send the trigger_error</description>
+          <long-description></long-description>
+          <tag name="param" line="42" description="" type="\unknown_type" variable="$string">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+          <tag name="param" line="42" description="" type="\unknown_type" variable="$e">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$e</name>
+          <default>null</default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="12" code="PPC:ERR-50007">No summary for property $debug</error>
+      <error line="13" code="PPC:ERR-50007">No summary for property $buffer</error>
+      <error line="14" code="PPC:ERR-50007">No summary for property $thebuffer</error>
+      <error line="15" code="PPC:ERR-50007">No summary for property $newline</error>
+      <error line="16" code="PPC:ERR-50007">No summary for property $outputStream</error>
+      <error line="17" code="PPC:ERR-50007">No summary for property $outputHandle</error>
+      <error line="18" code="PPC:ERR-50007">No summary for property $writeWrapper</error>
+      <error line="19" code="PPC:ERR-50007">No summary for property $label_wrapper_open</error>
+      <error line="20" code="PPC:ERR-50007">No summary for property $label_wrapper_close</error>
+      <error line="21" code="PPC:ERR-50007">No summary for property $body_wrapper_open</error>
+      <error line="22" code="PPC:ERR-50007">No summary for property $body_wrapper_close</error>
+      <error line="24" code="PPC:ERR-50015">Argument $string is missing from the Docblock of writeln()</error>
+      <error line="24" code="PPC:ERR-50015">Argument $e is missing from the Docblock of writeln()</error>
+      <error line="24" code="PPC:ERR-50008">No summary for method writeln()</error>
+      <error line="30" code="PPC:ERR-50015">Argument $string is missing from the Docblock of write()</error>
+      <error line="30" code="PPC:ERR-50008">No summary for method write()</error>
+      <error line="42" code="PPC:ERR-50018">The type for the param tag $string in throwError() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="42" code="PPC:ERR-50018">The type for the param tag $e in throwError() is either "type" or "unknown"; isn't this an IDE default?</error>
+    </parse_markers>
+    <source>eJytVE2L2zAQPVu/YjA5JCHEd+8mWZaG9lbIsvRSCLI9SUxUWUijuqHsf+9Izudm3V4K9sHz3ny9mfHjwuyMENl4LGAMS2sbCxuvS6obDareI1RY+O0ECk9Q61L5Ch3IqqoDQypoPBlPwVnqCkqpgXa2aQFDKAfUgGq2bgKOGgP4C0sfHCeAVE6DV3ifpKcdJ96jdlQqWVu28pMJ/nAOlqvV1xU7E+rKwafl8+vn3yIRiSNJdQmDWCLMYCOVw4eLvfCbDdoPANrhGZPWysNwdIVqbFWtkbH0sbCQzb/r9AruOn4hi/JH4LCAeZZ11nveF5ZFhVjaK3WFtrYm/GalMbGKd6iSBap128HrxqDuqpmnvaRSNa6rObulFU11uA9lLPazrmKdeCIxvlDMPDqclyQ2ovRw4MjWmjdlgLPQzYhHlBhpUVOeR9KJAlNgKDmmzvOz4O/sW6RnWe7JyhKHoz6vMLm3v1d3Svy/SzqmFkk4n4QXua0VX4RWBzAclY7HAfWGjwKhW+addFAgT0FyhT8lYdUdV/CNQaRq5cGB42WPblzgdstDiRcFkfLETfDyeb3XTavXdDAIx076cQxQ1qtUPNv4A/h4lCelZnAW6X5Lp2m81Tyd9pDiZh1FHQ4QFpyDRU5zSIHf9Dzmfw3mIZrFBbmddIBvhLs0tVy/vixX61joaYL8vAmxmIs/t5ebBw==</source>
+  </file>
+  <file path="lib/util/FPX.php" generated-path="lib.util.FPX.html" hash="f32c97e4b3c8b8073eed24f8fbb459e2" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="15" package="Default">
+      <extends>\DEBUG</extends>
+      <name>FPX</name>
+      <full_name>\FPX</full_name>
+      <docblock line="15">
+        <description>Function Parameter Extension</description>
+        <long-description>Allows you to explicitly declare contracts on parameters.
+
+To save time, this can be deactivated in production so that the
+checks are skipped.</long-description>
+        <tag name="author" line="15" description="kenstclair"/>
+      </docblock>
+      <property static="true" visibility="public" line="17" namespace="" package="Default">
+        <name>$debug</name>
+        <default>false</default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="18" namespace="" package="Default">
+        <name>$buffer</name>
+        <default>false</default>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="19" namespace="" package="Default">
+        <name>$thebuffer</name>
+        <default>array()</default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="44" package="Default">
+        <name>contract</name>
+        <full_name>\FPX::contract()</full_name>
+        <docblock line="44">
+          <description>Create a contract for the parameters when they are passed to the function as an array.</description>
+          <long-description>The contract is formatted as:
+array(
+   'required'=&gt;array(array('required', 'group'), array('alternate', 'required', 'group'),
+   'optional'=&gt;array('optional', 'params')
+)
+where only one of the required groups must have all of its parameters satisfied.
+The optional list will restrict the parameters to only those listed in the contract,
+to help catch typos and let you know when you've used an invalid parameter.
+
+A fun idiom:
+public static function inventoryDelivery($pArr){
+extract(FPX::contract(array(
+"required" =&gt; array('start_date', 'end_date'),
+"optional" =&gt; array('rollup', 'report_format')
+)));
+Now all your defined variables are ready for use, just as if
+you'd declared them normally. Use of extract() is ok because
+we define the params, and contract() is returning our defs.</long-description>
+          <tag name="param" line="44" description="" type="\unknown_type" variable="$arr">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$structure</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="104" package="Default">
+        <name>formatParamsError</name>
+        <full_name>\FPX::formatParamsError()</full_name>
+        <docblock line="104">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$required</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$optional</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="114" package="Default">
+        <name>getCallersArgs</name>
+        <full_name>\FPX::getCallersArgs()</full_name>
+        <docblock line="114">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$level</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="122" package="Default">
+        <name>getCallingFunction</name>
+        <full_name>\FPX::getCallingFunction()</full_name>
+        <docblock line="122">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$level</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="133" package="Default">
+        <name>arrayCheck</name>
+        <full_name>\FPX::arrayCheck()</full_name>
+        <docblock line="133">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="137" package="Default">
+        <name>require_params</name>
+        <full_name>\FPX::require_params()</full_name>
+        <docblock line="137">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arrOfNames</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$arrOfParams</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="147" package="Default">
+        <name>getMissingRequiredParams</name>
+        <full_name>\FPX::getMissingRequiredParams()</full_name>
+        <docblock line="147">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arrOfNames</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$arrOfParams</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="157" package="Default">
+        <name>restrict_params_to</name>
+        <full_name>\FPX::restrict_params_to()</full_name>
+        <docblock line="157">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arrOfNames</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$arrOfParams</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="165" package="Default">
+        <name>getUnwantedParams</name>
+        <full_name>\FPX::getUnwantedParams()</full_name>
+        <docblock line="165">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arrOfNames</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$arrOfParams</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="175" package="Default">
+        <name>pdefault</name>
+        <full_name>\FPX::pdefault()</full_name>
+        <docblock line="175">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="true">
+          <name>$param</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$default</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$replacement_type</name>
+          <default>"full"</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="17" code="PPC:ERR-50007">No summary for property $debug</error>
+      <error line="18" code="PPC:ERR-50007">No summary for property $buffer</error>
+      <error line="19" code="PPC:ERR-50007">No summary for property $thebuffer</error>
+      <error line="44" code="PPC:ERR-50018">The type for the param tag $arr in contract() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="44" code="PPC:ERR-50015">Argument $structure is missing from the Docblock of contract()</error>
+      <error line="104" code="PPC:ERR-50015">Argument $required is missing from the Docblock of formatParamsError()</error>
+      <error line="104" code="PPC:ERR-50015">Argument $optional is missing from the Docblock of formatParamsError()</error>
+      <error line="104" code="PPC:ERR-50008">No summary for method formatParamsError()</error>
+      <error line="114" code="PPC:ERR-50015">Argument $level is missing from the Docblock of getCallersArgs()</error>
+      <error line="114" code="PPC:ERR-50008">No summary for method getCallersArgs()</error>
+      <error line="122" code="PPC:ERR-50015">Argument $level is missing from the Docblock of getCallingFunction()</error>
+      <error line="122" code="PPC:ERR-50008">No summary for method getCallingFunction()</error>
+      <error line="133" code="PPC:ERR-50015">Argument $arr is missing from the Docblock of arrayCheck()</error>
+      <error line="133" code="PPC:ERR-50008">No summary for method arrayCheck()</error>
+      <error line="137" code="PPC:ERR-50015">Argument $arrOfNames is missing from the Docblock of require_params()</error>
+      <error line="137" code="PPC:ERR-50015">Argument $arrOfParams is missing from the Docblock of require_params()</error>
+      <error line="137" code="PPC:ERR-50008">No summary for method require_params()</error>
+      <error line="147" code="PPC:ERR-50015">Argument $arrOfNames is missing from the Docblock of getMissingRequiredParams()</error>
+      <error line="147" code="PPC:ERR-50015">Argument $arrOfParams is missing from the Docblock of getMissingRequiredParams()</error>
+      <error line="147" code="PPC:ERR-50008">No summary for method getMissingRequiredParams()</error>
+      <error line="157" code="PPC:ERR-50015">Argument $arrOfNames is missing from the Docblock of restrict_params_to()</error>
+      <error line="157" code="PPC:ERR-50015">Argument $arrOfParams is missing from the Docblock of restrict_params_to()</error>
+      <error line="157" code="PPC:ERR-50008">No summary for method restrict_params_to()</error>
+      <error line="165" code="PPC:ERR-50015">Argument $arrOfNames is missing from the Docblock of getUnwantedParams()</error>
+      <error line="165" code="PPC:ERR-50015">Argument $arrOfParams is missing from the Docblock of getUnwantedParams()</error>
+      <error line="165" code="PPC:ERR-50008">No summary for method getUnwantedParams()</error>
+      <error line="175" code="PPC:ERR-50015">Argument $param is missing from the Docblock of pdefault()</error>
+      <error line="175" code="PPC:ERR-50015">Argument $default is missing from the Docblock of pdefault()</error>
+      <error line="175" code="PPC:ERR-50015">Argument $replacement_type is missing from the Docblock of pdefault()</error>
+      <error line="175" code="PPC:ERR-50008">No summary for method pdefault()</error>
+    </parse_markers>
+    <source>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</source>
+  </file>
+  <file path="lib/util/k3/CommandParser.php" generated-path="lib.util.k3.CommandParser.html" hash="cadf625df1209a059ee4895f84a4f6be" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="41" package="Default">
+      <extends/>
+      <name>CommandParser</name>
+      <full_name>\CommandParser</full_name>
+      <docblock line="41">
+        <description>A class to help with command line parsing.</description>
+        <long-description></long-description>
+        <tag name="example" line="41" description="= new CommandParser($argv, array(&#10;&quot;desc&quot; =&gt; &quot;k3 is a command line utility for managing projects &quot;.&#10;&quot;built in the k3 framework.&quot;,&#10;&quot;version&quot; =&gt; &quot;0.0.1&quot;,&#10;&quot;commands&quot; =&gt; array(&#10;&quot;test&quot; =&gt; array(&#10;&quot;help&quot; =&gt; &quot;Help text for test command&quot;,&#10;&quot;desc&quot; =&gt; &quot;Run the test suite for this app&quot;,&#10;&quot;options&quot; =&gt; array(),&#10;&quot;run&quot; =&gt; function(){&#10;echo &quot;I'm running test&quot;;&#10;}&#10;)&#10;),&#10;&quot;options&quot; =&gt; array(&#10;&quot;v&quot; =&gt; array(&#10;&quot;also&quot; =&gt; &quot;verbose&quot;,&#10;&quot;type&quot; =&gt; &quot;switch&quot;, //switch, required_param, optional_param&#10;&quot;desc&quot; =&gt; &quot;Run in verbose mode&quot;&#10;)&#10;)&#10;));&#10;if($opts-&gt;hasGlobalOption(&quot;v&quot;)){&#10;echo &quot;has global option v&quot;;&#10;}&#10;$opts-&gt;run();"/>
+        <tag name="author" line="41" description="ken.stclair"/>
+      </docblock>
+      <property static="false" visibility="public" line="42" namespace="" package="Default">
+        <name>$config</name>
+        <default></default>
+        <docblock line="42">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="43" namespace="" package="Default">
+        <name>$program_name</name>
+        <default></default>
+        <docblock line="43">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="44" namespace="" package="Default">
+        <name>$args</name>
+        <default></default>
+        <docblock line="44">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="45" namespace="" package="Default">
+        <name>$global_args</name>
+        <default>array()</default>
+        <docblock line="45">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="46" namespace="" package="Default">
+        <name>$command</name>
+        <default></default>
+        <docblock line="46">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="48" package="Default">
+        <name>__construct</name>
+        <full_name>\CommandParser::__construct()</full_name>
+        <docblock line="48">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$argv</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$config</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="99" package="Default">
+        <name>run</name>
+        <full_name>\CommandParser::run()</full_name>
+        <docblock line="99">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="118" package="Default">
+        <name>usage</name>
+        <full_name>\CommandParser::usage()</full_name>
+        <docblock line="118">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="145" package="Default">
+        <name>hasGlobalArg</name>
+        <full_name>\CommandParser::hasGlobalArg()</full_name>
+        <docblock line="145">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$str</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <markers>
+      <todo line="82">handle --f=value</todo>
+      <todo line="96">parse this out, handle -f=value, make it not naive/stupid</todo>
+      <todo line="133">add output for new "also" attribute, the long form</todo>
+    </markers>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="42" code="PPC:ERR-50007">No summary for property $config</error>
+      <error line="43" code="PPC:ERR-50007">No summary for property $program_name</error>
+      <error line="44" code="PPC:ERR-50007">No summary for property $args</error>
+      <error line="45" code="PPC:ERR-50007">No summary for property $global_args</error>
+      <error line="46" code="PPC:ERR-50007">No summary for property $command</error>
+      <error line="48" code="PPC:ERR-50015">Argument $argv is missing from the Docblock of __construct()</error>
+      <error line="48" code="PPC:ERR-50015">Argument $config is missing from the Docblock of __construct()</error>
+      <error line="48" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="99" code="PPC:ERR-50008">No summary for method run()</error>
+      <error line="118" code="PPC:ERR-50008">No summary for method usage()</error>
+      <error line="145" code="PPC:ERR-50015">Argument $str is missing from the Docblock of hasGlobalArg()</error>
+      <error line="145" code="PPC:ERR-50008">No summary for method hasGlobalArg()</error>
+    </parse_markers>
+    <source>eJy1V21v20YM/mz9CkIwYCnwS7p9i+d0aRN0Bdo4SLoBg2sYZ/lkaTlLmu5kN2jz30feiyzZXlZsGBAHEo9HPnzI41E/vS6SwhudnXlwBvS7gkgwKUHlkHBRwC5VCUT5ZsOyFYg041CwUqbZeghuy8/8C9sUgkM3L5SECWR8B2/NljtU5mXQZeV62wdWluwp8Dr+isvIh8kl+I8/QiqBtV1UKhWpeoI4LwGlbI3+oCjzP3iEDvyh1+n4yyoVCtIMVMIBrcQl2/BdXj4O/b6HLrYcYeaZ8XI+PB++QnmngyvWldRLFhJZVFyqpqyDMuLAmPiF2FD8i9KoSNdh1nabMd1XBpVWklWquNmTUKRFYfWRLMTXRBGahbIyqOMqi0glCL+SvMOjJAf/fW8DqJERJRrxmBaf8V/odciCd8o0xbc9DI4JmRvESNYyl9wiU08FN3KJ6Y8Svw+jkXnsQ8n/rNKSrxZYB2zTB+OLCfN+gglMkTUPm3zFfVKxaL0wHHteGge6cgaXCZPvRL5kYqqNBgg5pOBN5LgKa71sncIWg3/27GYkJUBzVJCsUgkS/sizoVRYz2mJYvwbeaa4W8WJ9reshG6UZ3G6Hts3rLY1xrPIsKqcDItYumcDZEEirHibv3FtStsfUzKKainSqE4mLBboSKqyipQ7Fta1TnOXqmRwaSRoeQ/LLTWROdcLmaSxtRc2dC08LddiJ9gvjzG3q6pAjAzrVFvTx6TTlcihskfa12XWFXm2tpJ9yB0sbs6iJGhhn/VsFfbmgIkz1qgouiuuWCqkqWpTVoETznpUfL25LfmIYdW4KrzQoiau4cTaHZslqqTaEFU3GoIa9GxOkR+s251LjOBx3PDZLvOXfA/9C//f+2/sPsLQPlr/gOE/gjiFYsVjVgl1QRViHulaOD7w/zMm6m3069qCQuU1J2fB3m1/b02X5PXNm1/fXVzsSmy+AhuJVpQXeHfAflNTU+DBXayqTRH4ZIhU/8ZmQ9MBKrCp8BV2OtpjhXqL+RuNikpg04pj179iwdYSV3ZJKniA3aDIpT69cnY+70Nv0AthMpnAefgVyf80vZ5Cgg0F79jBIJ5smag4MdNVfFMgHUdNwHgn2k/YbhjX2XFWZLVE7UC/9uEHY+KZC8lf0nsV1klyXafRG01qSXNss6j5yOgeZbHiZYsRGgVs72y2QjMZHLe6muPRaJcw1ZMgeIx2S16PE6R1ZGrRaIu6/2mCaa7h5pLOK9WvCbd893ESeeSQKshy/LF0y0dSVUWKUJ9PNXp9HxFzmAVAAtRT0Gi7IXz7ZlltR4m91gwddr2102qFJnNWWEm25qYTd0quqjKD8wbbXUK07/muO7spqDeftY3PZz2EbjojQk/lImJCsCUWqjblnNNzcIJYDWRfNjf399P71qmxty/mKMMTn9H0V5OmMI9YBVlP0Uxo/dKp0p4bUem/k7xbOsi5mRs+Z7dXH290L3GCz+rUZTrQ7aFNE80yhgu317fEHCjaedNdXU77t5v7h/fTW9PJ9u6PHdX7W5q+C9kJHn6/nd49vH84CAdOxTNrTUtyXp+KmXuoV2aYuWrDMyWHw+HcP4rXvbz7MH1z9QGmd58wqEMQAxwPBwP92YAv8JDkO3OeNlxSUvzvHhbM2+SyORl1uismE04HF9uP4Flg1UK4fAWvwR8MfMC2PfDrI81WKzrLRWWGdvousUMvU6pMl5XCY02TOvV5Utm0s2Q9Wj8YFIX1tduujeejHLVoeTv9+PHq9vqQK8uS5ojhVw9+KeSxSxB2oNJ8fhHsPKv72UsM7g+0ptC+HnDYiM3VwGf1fRGdPGz1xH5VrvE6VqV2Y7tQmi3MlEgLfTi+HUJt9tnzvL8AYHFkQw==</source>
+  </file>
+  <file path="lib/util/SQL.php" generated-path="lib.util.SQL.html" hash="025edad3237623f1fc0c7f1cbf3a69b9" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="12" package="Default">
+      <extends/>
+      <name>SQL</name>
+      <full_name>\SQL</full_name>
+      <docblock line="12">
+        <description>A class that does all the extra bookkeeping surrounding my_sql queries.</description>
+        <long-description>It includes error throwing, automated debug, and automated benchmarking.
+Also available is a compact form for processing each row of a result.
+Maintains a list of all queries and results.</long-description>
+        <tag name="author" line="12" description="kenstclair"/>
+      </docblock>
+      <property static="true" visibility="public" line="13" namespace="" package="Default">
+        <name>$queries</name>
+        <default>array()</default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="14" namespace="" package="Default">
+        <name>$results</name>
+        <default>array()</default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="39" package="Default">
+        <name>query</name>
+        <full_name>\SQL::query()</full_name>
+        <docblock line="39">
+          <description>Run a sql query.</description>
+          <long-description>Automatically creates debug output with the query and result (if DEBUG is active).
+Automatically creates benchmark points before and after the query (if BENCHMARK is active).
+Throws an error if the query is malformed (and ERROR is active).
+Stores the query and result in lockstep arrays.
+
+Also takes an optional function to run on each row.
+
+Usage:
+$result = SQL::query($query);
+
+or with a function applied to each row:
+$processed_results = SQL::query($query, function($row){...});
+
+or using a function in a classes:
+$processed_results = SQL::query($query, array($class_name, $class_function_name));</long-description>
+          <tag name="param" line="39" description="" type="string" variable="$query">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="39" description="&lt;p&gt;a function to run on each row&lt;/p&gt;" type="\function" variable="$func">
+            <type link="function.html">\function</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$query</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$func</name>
+          <default>null</default>
+          <type>\function</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="79" package="Default">
+        <name>foreachrow</name>
+        <full_name>\SQL::foreachrow()</full_name>
+        <docblock line="79">
+          <description>A compact form for processing rows.</description>
+          <long-description>It will automatically use the last query run as its
+result set. To use a different result set, pass in
+the result as the second parameter.
+
+Invoked like this:
+SQL::query($query);
+SQL::foreachrow(function($row){
+		...
+});
+
+or more simply:
+SQL::query($query, function($row){...});
+or using function in classes:
+SQL::query($query, array($class_name, $class_function_name));</long-description>
+          <tag name="param" line="79" description="&lt;p&gt;the function that processes each row&lt;/p&gt;" type="" variable="$func"/>
+          <tag name="param" line="79" description="&lt;p&gt;optional&lt;/p&gt;" type="" variable="$result"/>
+          <tag name="return" line="79" description="array of the return values from $func on each row" type="\an">
+            <type link="an.html">\an</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$func</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$result</name>
+          <default>null</default>
+          <type>mixed</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="13" code="PPC:ERR-50007">No summary for property $queries</error>
+      <error line="14" code="PPC:ERR-50007">No summary for property $results</error>
+    </parse_markers>
+    <source>eJytVt9v2zYQfpb/ikPgBzvI7O1VWdCmW7AFa7vVSR6KoTBomaoJU6JKUk6NIP/77o6URDs/sAEDLEMi77473n33ST+/aTbNaH56OoJTuIRCC+fAb4SHtZEOhNb4JEF+91bAypjtVspG1V/Btdaatl7TfbVfum8avrXSKulmQFh0XXtQdaHbNSJJNLeIZc09upyBaL2phJdrWMtVSwv1OllcybrYVMJu0TgAXmpnQOyE0mKlJShMDgpTNaLwUBpb0R801hTSOUpKimIDGA1MiZZWulb7gPRBqNrjRQhaOc8Wus+fMwn2yVneYm4bjLCVtfNYJmVxFX/zUajZzaf3D6PMeeFVAeMO6gKEtWI/mZ4PexH6YG+UUQsyjLNoa0yrK+ceE6BV/rsM1VEFJruHwkqslAvlA9P6pvVwr/yGG8bOyUlgokr49erd3W9cucKrnZzOXsPtOwCNwXrRAlZYhj6VXtokDoG/u/r4y+8fLhd/PA1wS12nukYWoPXgi9aV0NRBbPuE0K8Wiz8XT1FuPIZ3z59O1aBNsXVeNqGq7qBwRB0vttxbMI1XphYayrYu6Ba8AYtlx7uONKn3nRNfZc63sXfYOmx3nnMaE272nrrYeeARuRFiCCGaRis8IIbqYkTISFm5Xg7EeIJ+1iNNxug6fZjNZo9HIVumfRJTEZOYndL9t2CBmGP2XdaikmcQHzpwXp2mGfDf20ZYUYHzlnIJcOlGn9uY7tJkn/aA/OajrGlXGscmTk9vf5gww13UrdZTnMKMiZ7n91Z5qevJyae7q8XnPOZzQllnPV3zPDD+L2L55CSynC0PPYbmV3ucz+Vx91+EDNPyDGJMU++EXa7bqpmcLK5u7t7f5nBy1nGNDVU56aNfXEAptJN80IxnJTlpmIwSVVKuD4M94hWKmOedPv39BU8TjM7T7UiOsB0eujS4b5gD15oysNK3tk7NJGb3kGx1sFRY7C22NsB0aT2m+nf5qqiTjswGul2T4qFyiwMFa51klUDC+igVRC3hQHnHfrGWTuIb4dawg4C1KktpZe2T7TNoSNxVzW4EGvdEECInC4MqxOSW2OVUN67rndniyGu1pXxUnMGXlIPXkxIdDTzbZBnOPd8dD39FpHWqavT+hTCvSUivHql2HCjH/yQSUQYCi6iAw/zTN0cnT+5ABHqvWPtOwMNeJBkKOydEL/PQJ17eCd0iXGlNF/VfK8wxXfuRHHQGB6LAjyA/OZ6cKY3Ij8+P6EeTEAxTo6+oMKLdwPB8n+NzHNtjBQjDB+QxiNKT4YWXUvvhJ/jC4UjUSiuPvkWy+w2qB5Ok17pS+mKzxN6aostjGk6HiSm3jFzgqQ7rEZklhMZyiUNmmRlDNZGF5zCfF2YnrTuuv0s4OOOzPvbCkoKPAyaDsdVoPs+e09ahn/z2DRobvWKVOy1j9HNSptHjP4qzhuE=</source>
+  </file>
+  <file path="lib/util/TEST.php" generated-path="lib.util.TEST.html" hash="3805043fadeddad38ac49125e6f80a0b" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="8" package="Default">
+      <extends>\DEBUG</extends>
+      <name>TEST</name>
+      <full_name>\TEST</full_name>
+      <docblock line="8">
+        <description>Enter description here .</description>
+        <long-description>..</long-description>
+        <tag name="author" line="8" description="ken.stclair"/>
+      </docblock>
+      <property static="true" visibility="public" line="10" namespace="" package="Default">
+        <name>$debug</name>
+        <default>false</default>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="11" namespace="" package="Default">
+        <name>$buffer</name>
+        <default>false</default>
+        <docblock line="11">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="12" namespace="" package="Default">
+        <name>$thebuffer</name>
+        <default>array()</default>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="13" namespace="" package="Default">
+        <name>$newline</name>
+        <default>"&lt;br /&gt;\n"</default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="14" namespace="" package="Default">
+        <name>$outputStream</name>
+        <default>"php://output"</default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="15" namespace="" package="Default">
+        <name>$outputHandle</name>
+        <default>null</default>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="16" namespace="" package="Default">
+        <name>$writeWrapper</name>
+        <default>null</default>
+        <docblock line="16">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="17" namespace="" package="Default">
+        <name>$label_wrapper_open</name>
+        <default>"&lt;b&gt;"</default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="18" namespace="" package="Default">
+        <name>$label_wrapper_close</name>
+        <default>"&lt;/b&gt;"</default>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="19" namespace="" package="Default">
+        <name>$body_wrapper_open</name>
+        <default>"&lt;pre&gt;"</default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="20" namespace="" package="Default">
+        <name>$body_wrapper_close</name>
+        <default>"&lt;/pre&gt;"</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="21" namespace="" package="Default">
+        <name>$assertions</name>
+        <default>0</default>
+        <docblock line="21">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="22" namespace="" package="Default">
+        <name>$tests</name>
+        <default>0</default>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="23" namespace="" package="Default">
+        <name>$passed_assertions</name>
+        <default>0</default>
+        <docblock line="23">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="24" namespace="" package="Default">
+        <name>$failed_assertions</name>
+        <default>0</default>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="25" namespace="" package="Default">
+        <name>$passed_tests</name>
+        <default>0</default>
+        <docblock line="25">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="26" namespace="" package="Default">
+        <name>$failed_tests</name>
+        <default>0</default>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="27" namespace="" package="Default">
+        <name>$non_bool_test_results</name>
+        <default>0</default>
+        <docblock line="27">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="37" package="Default">
+        <name>assert</name>
+        <full_name>\TEST::assert()</full_name>
+        <docblock line="37">
+          <description>Assert that an expression or function is true.</description>
+          <long-description>Accepts a bool or a function that returns a bool.
+Assertions that return true will pass, those that return
+false will fail.</long-description>
+          <tag name="param" line="37" description="" type="" variable="$phrase"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$phrase</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="88" package="Default">
+        <name>runTest</name>
+        <full_name>\TEST::runTest()</full_name>
+        <docblock line="88">
+          <description>Run a test</description>
+          <long-description>Provides a structure for running a series of tests inside
+of closures, so that they don't have the chance to
+interfere with each other.
+
+Will keep a running tally of all tests that have passed
+and failed.</long-description>
+          <tag name="example" line="88" description="assert expression&quot;, function(){&#10;return TEST::assert(false === false);&#10;});"/>
+          <tag name="example" line="88" description="assert true closure&quot;, function(){&#10;return TEST::assert(function(){&#10;return true;&#10;});&#10;});"/>
+          <tag name="example" line="88" description="single switch&quot;, function(){&#10;$output = array();&#10;exec(BASE_PATH.&quot;test/lib/util/k3/CommandParserTestHelper.php -v test&quot;, $output);&#10;$should_be = array(&#10;&quot;&quot;,&#10;&quot;var: v&quot;,&#10;&quot;command: test&quot;,&#10;&quot;run: I'm running test&quot;&#10;);&#10;$dif = array_diff($output, $should_be);&#10;return TEST::assert(empty($dif));&#10;});"/>
+          <tag name="param" line="88" description="" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="88" description="" type="\function" variable="$closure">
+            <type link="function.html">\function</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$closure</name>
+          <default></default>
+          <type>\function</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="138" package="Default">
+        <name>runTestsIn</name>
+        <full_name>\TEST::runTestsIn()</full_name>
+        <docblock line="138">
+          <description>Run all test files in a specified directory</description>
+          <long-description>If directory contains a .testignore file, then
+each line will be used as a regex pattern, and
+any matching files will be ignored, case-insensitive.</long-description>
+          <tag name="param" line="138" description="" type="\unknown_type" variable="$directory">
+            <type link="unknown_type.html">\unknown_type</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$directory</name>
+          <default></default>
+          <type>\unknown_type</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="171" package="Default">
+        <name>writeSummary</name>
+        <full_name>\TEST::writeSummary()</full_name>
+        <docblock line="171">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="190" package="Default">
+        <name>recursiveDirToArray</name>
+        <full_name>\TEST::recursiveDirToArray()</full_name>
+        <docblock line="190">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dir</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <markers>
+      <todo line="146">be a little more sophisticated here with array ops</todo>
+      <todo line="164">think about making this less naive</todo>
+    </markers>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="10" code="PPC:ERR-50007">No summary for property $debug</error>
+      <error line="11" code="PPC:ERR-50007">No summary for property $buffer</error>
+      <error line="12" code="PPC:ERR-50007">No summary for property $thebuffer</error>
+      <error line="13" code="PPC:ERR-50007">No summary for property $newline</error>
+      <error line="14" code="PPC:ERR-50007">No summary for property $outputStream</error>
+      <error line="15" code="PPC:ERR-50007">No summary for property $outputHandle</error>
+      <error line="16" code="PPC:ERR-50007">No summary for property $writeWrapper</error>
+      <error line="17" code="PPC:ERR-50007">No summary for property $label_wrapper_open</error>
+      <error line="18" code="PPC:ERR-50007">No summary for property $label_wrapper_close</error>
+      <error line="19" code="PPC:ERR-50007">No summary for property $body_wrapper_open</error>
+      <error line="20" code="PPC:ERR-50007">No summary for property $body_wrapper_close</error>
+      <error line="21" code="PPC:ERR-50007">No summary for property $assertions</error>
+      <error line="22" code="PPC:ERR-50007">No summary for property $tests</error>
+      <error line="23" code="PPC:ERR-50007">No summary for property $passed_assertions</error>
+      <error line="24" code="PPC:ERR-50007">No summary for property $failed_assertions</error>
+      <error line="25" code="PPC:ERR-50007">No summary for property $passed_tests</error>
+      <error line="26" code="PPC:ERR-50007">No summary for property $failed_tests</error>
+      <error line="27" code="PPC:ERR-50007">No summary for property $non_bool_test_results</error>
+      <error line="138" code="PPC:ERR-50018">The type for the param tag $directory in runTestsIn() is either "type" or "unknown"; isn't this an IDE default?</error>
+      <error line="171" code="PPC:ERR-50008">No summary for method writeSummary()</error>
+      <error line="190" code="PPC:ERR-50015">Argument $dir is missing from the Docblock of recursiveDirToArray()</error>
+      <error line="190" code="PPC:ERR-50008">No summary for method recursiveDirToArray()</error>
+    </parse_markers>
+    <source>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</source>
+  </file>
+  <file path="config/autoload.php" generated-path="config.autoload.html" hash="ee54d8fe1ea1dbb5509253a1d33e40c6" package="Default">
+    <docblock line="0">
+      <description>functions to autoload the required classes</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description=""/>
+      <tag name="subpackage" line="0" description=""/>
+    </docblock>
+    <function namespace="" line="44" package="Default">
+      <name>main_autoload</name>
+      <full_name>\main_autoload()</full_name>
+      <docblock line="44">
+        <description>function to autoload the requested class name</description>
+        <long-description></long-description>
+        <tag name="global" line="44" description="array $GLOBALS['autoload_paths']"/>
+        <tag name="global" line="44" description="array $GLOBALS['autoload_map']"/>
+        <tag name="param" line="44" description="&lt;p&gt;name of the class to be loaded&lt;/p&gt;" type="string" variable="$class_name">
+          <type>string</type>
+        </tag>
+        <tag name="return" line="44" description="whether the class was loaded or not" type="bool">
+          <type>bool</type>
+        </tag>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$class_name</name>
+        <default></default>
+        <type>string</type>
+      </argument>
+    </function>
+    <function namespace="" line="125" package="Default">
+      <name>__autoload_log_error</name>
+      <full_name>\__autoload_log_error()</full_name>
+      <docblock line="125">
+        <description>logs the error for the autoload function</description>
+        <long-description></long-description>
+        <tag name="param" line="125" description="" type="string" variable="$error_message">
+          <type>string</type>
+        </tag>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$error_message</name>
+        <default></default>
+        <type>string</type>
+      </argument>
+    </function>
+    <source>eJztV1Fv2zYQfraB/IebEUC2kUXva5MuHYxtQNYOafuUBgItnSwisqSRVFxj3X/vHSnLpKN4yYC+7SGBRR553/fdJx71+k1TNCfjeD4fwxzytkqNrCsNpgbRmrqsRQamQFD4VysVZpCWQmvUHM1/PzcivRcrdA+6XXrP8cm43znDXFaoYVMIYzfUKFRaQCNMAVJDXivIZUkRVW3oqa0ykJWN7HGsRdOnfRAKhFJi6/Kc/nr9/u3V9Qe4jXbhCW+tozu4cIEwZTijt1cfFsmfVx9/O4dJXMpl3BpZxpOzoSnaqnhiql67iTgWWQYVboBGLRsNBSo8Gc9eDdDXDaYylylIg2urskFtTjjE/rvHLathRYZKrPEMHkTZopWI5LEZXiICaRZKEMejaPHFoKpE+TuBiODiEobo+UH6nFzCfB2pk7FuyqTPoXAlNQVPJ2shq358wsEHxhr0FSmwM5bl3PNblfVSlB32HbvHFX5WrBXCc60Sa9BGyWoFpzZ1wqltfqhzi80hIsRLBN4DM7tWoWlVBcu6LsnOSJHKC98I3QUDWZrM7GrTCxBINPVSz+Bv8tNphst2RQXLRanxFY+4fAn5IBiWVVq2GSbWFhcQRXaU7eR02RcduBAja1Z67dJWSbOFtMD0XkNdedit+COZw7ShmpJkht7QKUTx9PP518KY5mtumlkcnQWSzRzyUbJ3RFmvElSKBKDV764//fFLsri5eX9zG8E5GEmLpjP6Fd39BDwS7ZfSeA8xF0QtY4gO3oRj/cy0ksYsu1FXFU8tHv4HiDPyWZI/ou62Z2E6aUT178LgujEs6fcUwOXYZ6aXno5cPg9fQDYgE1Kdz8GoLRubDqXdiyfZmg2NKG1gzpZlTTiO3hIhV4V5pIUkVIa1ePLcufVkuut1OrTuM9c7ikj+93h6mDq4Zb1BlQodHinPBUxkeYC2OCzyf8J/ZLvDivW4A9iDFWNj2txUtLpV+xPVdlNXvMCsAeAdDWq5KOwLfqx70nF2arftVgVHzC23lomdjz12tltYo/YEd8kCqBRg+bHTyrpuiJiq21UBNtRm5Q7pmHccLPEQvQeI0faPPWTWgpcl+IUalQ7W9HK4MHf+ztzACNOihsknzV0i2q+J7HUl8hhHr5cK4svPlaM94JF+cRewJPj37rfvAhvuYA7J53EN3VMdCnTcOMsttJZVeMZxYIZKPqCdeJGd/q/j961jF+DP8q2QTrSz7twTGfOTxivZD3C8aOHlorvkJ3WVYrjg8LDy5zyMjsCuodiQrEMz2LL2uuyuR34jHHsXaGqo2nrSdVWuW/BtsNvgiRueXZWsUWv6Njm4kQ217Wm4wqnlhiiG5QzmXVtmwZ2Ven9GCw6jC5O9t+1ldywu7IfDorsnuNbupn68XGGFShjczQ4l9CuyQSgEvbei6iSySI4q7NFlrd9cjr8BwnVTkA==</source>
+  </file>
+  <file path="config/config.auth.php" generated-path="config.config.auth.html" hash="1548af380f41ef37569432b9ef326c56" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <constant namespace="" line="6" package="Default">
+      <name>COOKIE_UN</name>
+      <full_name>\\COOKIE_UN</full_name>
+      <value>"sd_un"</value>
+      <docblock line="6">
+        <description>cookie stuff</description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="7" package="Default">
+      <name>COOKIE_TOKEN</name>
+      <full_name>\\COOKIE_TOKEN</full_name>
+      <value>"sd_token"</value>
+      <docblock line="7">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="8" package="Default">
+      <name>COOKIE_EXPIRATION</name>
+      <full_name>\\COOKIE_EXPIRATION</full_name>
+      <value>3600 * 24 * 180</value>
+      <docblock line="8">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="9" package="Default">
+      <name>COOKIE_PATH</name>
+      <full_name>\\COOKIE_PATH</full_name>
+      <value>"/"</value>
+      <docblock line="9">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="14" package="Default">
+      <name>SESSION_UN</name>
+      <full_name>\\SESSION_UN</full_name>
+      <value>"s_username"</value>
+      <docblock line="14">
+        <description>session stuff</description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="15" package="Default">
+      <name>SESSION_TOKEN</name>
+      <full_name>\\SESSION_TOKEN</full_name>
+      <value>"s_token"</value>
+      <docblock line="15">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJxtkF0LgjAUhu/3K8auTMLZBxEUhIWQCClp0N0wPeLQpjT3/9sIMcqbww579r4P2x+6qkOI2jbCNs7btuaAZa/KUu8UFVByARY5RVEY+Ox2IXNMZMGUILPd720ahf4A9G0NU4x/j4OrlwaRAVcb19Wty7Uei637T8deejaB1CQNkhKk5K2YsEz8JNHJgyZTEl4ie8K3x8CMsqMrQlzkjSrAOnrJp93BpOEPmqm+onkFec3M0dGfZh68ARmAWoc=</source>
+  </file>
+  <file path="config/config.form.php" generated-path="config.config.form.html" hash="f841b3c15230c3e22bfd4544c70e9938" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <function namespace="" line="66" package="Default">
+      <name>get_template_file</name>
+      <full_name>\get_template_file()</full_name>
+      <docblock line="66">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$element</name>
+        <default></default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="" line="81" package="Default">
+      <name>get_input_names</name>
+      <full_name>\get_input_names()</full_name>
+      <docblock line="81">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$form_structure</name>
+        <default></default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="" line="92" package="Default">
+      <name>number</name>
+      <full_name>\number()</full_name>
+      <docblock line="92">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$number</name>
+        <default></default>
+        <type/>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$money</name>
+        <default>false</default>
+        <type/>
+      </argument>
+    </function>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="66" code="PPC:ERR-50015">Argument $element is missing from the Docblock of \get_template_file()</error>
+      <error line="66" code="PPC:ERR-50011">No summary for function \get_template_file()</error>
+      <error line="81" code="PPC:ERR-50015">Argument $form_structure is missing from the Docblock of \get_input_names()</error>
+      <error line="81" code="PPC:ERR-50011">No summary for function \get_input_names()</error>
+      <error line="92" code="PPC:ERR-50015">Argument $number is missing from the Docblock of \number()</error>
+      <error line="92" code="PPC:ERR-50015">Argument $money is missing from the Docblock of \number()</error>
+      <error line="92" code="PPC:ERR-50011">No summary for function \number()</error>
+    </parse_markers>
+    <source>eJyFVU2P2zYQPUu/YiAItb1wvEWPdjebHBZogRYNNgv0sDEEShpZ7FKkIFJxjNb/vTPUh205iA/Ltcj33sy84Ui/PtZlHYZxDQ/w8vTnpz8+vjx9Tj59fPkNVhApmd4XpqnsfbQJYyVSVIl1jawtwUXTiMM8gmgJ0ZqXR17uefnyhdf/eNnw8hMvc14W0WIThvd3dyHcAf+9lNLCV9FAbaR2FlyJsBcHcMb/dFjVSjiEQirkU+E8LTNV3UiLIIATXMFJj7GNdZDLCrWVRlOm6MWkrlsH7lCjPRE+Y2Z0fkLbEZ5LS7EPYGrn9xlNwQBFVnqV1aDxd4kUBVAhibiZhVw4AVQYSbumzRzmIB1kQkMpvnLSzKqE1F4HBCXgWMOa6iruytfEhGlCJVKmLOq94wjkmgCNe29XV+PvBUsTkMvSZiqyZNpeKgVCke9dlVlpjO1NwEK0yi0pteE32NK0Kh8IKTKlbtBS7eeNoPqFUmZv4WBaTo34UnP1uq1SbMAUIFK6TyJzzPCN8V7YNu0e9tJRLMeuSb3jhCpwktzkQvWBWbbGTBYyA0k3xfsvuDCokKj5KZ+Y70lCDSnkbry9fBAEs75xCQedwcP7i9Ng1luWdJZ5wGy4mAk7ndTClStXqxVN02w58jq/bhI6/IL/+eUDz0Or37TZa58Tbd6H3y8giBx+c9FZ0kEQVRRVvlNktj+I65VHJX6ft4fQ0ZLhfZ4X2BERBgsCRZb8V/jOklXZNFwjcmlGtn/6cYBOZRqiy/q7EbISs7fUfBsVho0fx7lC9ZGc2VExkxhXLnjQlEqTfYMIHpPUMnvDZkovZZ6jviXQoa5a0KaVnDpzZa0HTal8524Q/RvjgsZv6rBodebnaYc0H+d3eB73Y7P4Nwx2yqRCXQzZJgzCQBbz2KT/+FtMl/b8/HXgv8783G23LOQZPHAjZaCf4S8H0s62lxJBg65tNJx0KJfgiMrixfGoPE7q1gPDE/bp+fmv5/V630iHSs8jzr97Z2vj6GvQ6nwN0QqmtSxYqI+jW6Xo8RgeJ3b671GiRYV23jlj/deibZDriP1JQi0bx51lCei/QFMKCAvnLTnjv27ZyDFF3velHrlFgxsjmht3PG9997qex93/JcSV0Xh4KASZxJGoZdJadANi0YWnzChsFG2Gh9VDT4VHiOII1v2h7zrV48+6Dg74TjDhSoU7ZfDL4rKjN+A/L6Z97ZPrEZ0VgxF0tCED/gfQX9Cd</source>
+  </file>
+  <file path="config/config.inc.php" generated-path="config.config.inc.html" hash="43fc92ca9b37f4296d4e968708532132" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <constant namespace="" line="2" package="Default">
+      <name>BASE_PATH</name>
+      <full_name>\\BASE_PATH</full_name>
+      <value>realpath(__DIR__ . "/../") . "/"</value>
+      <docblock line="2">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="3" package="Default">
+      <name>TEMPLATES_PATH</name>
+      <full_name>\\TEMPLATES_PATH</full_name>
+      <value>BASE_PATH . 'templates/'</value>
+      <docblock line="3">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="4" package="Default">
+      <name>CSS_FILE_PATH</name>
+      <full_name>\\CSS_FILE_PATH</full_name>
+      <value>BASE_PATH . 'docroot/css/'</value>
+      <docblock line="4">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="5" package="Default">
+      <name>WEB_ROOT</name>
+      <full_name>\\WEB_ROOT</full_name>
+      <value>'http://k3.local/'</value>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="6" package="Default">
+      <name>IMAGES_PATH</name>
+      <full_name>\\IMAGES_PATH</full_name>
+      <value>WEB_ROOT . 'images/'</value>
+      <docblock line="6">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="7" package="Default">
+      <name>CSS_WEB_PATH</name>
+      <full_name>\\CSS_WEB_PATH</full_name>
+      <value>WEB_ROOT . 'css/'</value>
+      <docblock line="7">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="8" package="Default">
+      <name>CSS_ROOT</name>
+      <full_name>\\CSS_ROOT</full_name>
+      <value>BASE_PATH . 'www/css/'</value>
+      <docblock line="8">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="9" package="Default">
+      <name>JS_WEB_PATH</name>
+      <full_name>\\JS_WEB_PATH</full_name>
+      <value>WEB_ROOT . 'js/'</value>
+      <docblock line="9">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <constant namespace="" line="10" package="Default">
+      <name>JS_ROOT</name>
+      <full_name>\\JS_ROOT</full_name>
+      <value>BASE_PATH . 'www/js/'</value>
+      <docblock line="10">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNU11vmzAUfR6/4gpVAqQIP+wt2TSRlLbZkgYRpu1plmNMcGtsZsyi/PuafDUkjbQXwNfnHJ/rc/nyrS5rJ2cFl8z3xtEyxkmUPXkD0IyImpjSx/h+mmIMIbgoDJEb7L7cYPTpxMvieTKLsnh5JJ+EQvAMq2pBDGuQF4xOlMlyiR+ms/gjRq6oVsog2vQ5v+IxTheLzMK90ph6iNDr51AoSkQPN51Hj+9ejiwrzCuy/sBHh7gGX57eIQ+nn5vdbDZXRr/f0ny5wt1QPAAdprXSWLNaacPl2o9xNJvBH4jx8yKbTuIOgxBIZaBtLABMySBfdTXN/rZcM6wkZeB7+Sq0Ue9EnTsuKXwFojXZ+mtmsF2LNmd4F3hwZsdm7Qm+6mjNJY7bXFXO/A6Hl3ESpVG2SAfQqQfdORcOSGuUUCQ/+hjHz5OneZT+GA4JNfyfnRE/GIG1flwCkTnk7LRcMUrahsFWtUCJ9Ix9CrHrmQrSNBZQKL3fP1i1m7yBggs2gFVrYMOgMdySNkQaqw+MaLGF2g6GZUtaVkS/hnBujtpfwbBEcWl8N+mAjSHauP0W3m36Xe8Pye9eW06cpou0X0LoPh7/fOwXzy/Nv8wBtdY7oqqqlDxeI0I3KS5VsuBrtM/e/T/w/hXatMojy07MS4MrLrEqCjs4Rrds5NzZsb8qOm9SGVbY</source>
+  </file>
+  <file path="config/db.php" generated-path="config.db.html" hash="25b5162449aa4b14bf9112f34272763c" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJw9jssKwjAQRff5iiEUmkIR60ZBg36AW9chj6ktxqQmKeLfm1pbZjFc7uHMnM5DN5BCGhMwRg602e032zwNPZJijBg4Dd6nKQ0yxrcPhtMpGZmkkhE5tX2LQudo/X3E3OVSXXv3AA7PT3xZob1zqBNb7tQ/c70aqyOZwYhJ6E6GvFk5pvZQ1vCXZeayQDbLhFFsfaICH8D0yIDenFQWIXmYOVgYWGmaXeQLqXxSnA==</source>
+  </file>
+  <file path="test/lib/util/DEBUGTest.php" generated-path="test.lib.util.DEBUGTest.html" hash="8e4c860a74df4652151c19f0cc06ffdc" package="Default">
+    <docblock line="0">
+      <description>These tests are a little tricky because DEBUG is never
+instantiated and only used as static. Because of that,
+each time we make a test, we have to pull the current values
+of things that we are going to change, and make sure to set
+them back to the values that existed before the test once
+we've run our test.</description>
+      <long-description></long-description>
+    </docblock>
+    <source>eJzlVk1v2kAQPZdfMbJQaiIrSFFPJm0lmqiXqD2UKpdIaLHHeBWztnbXUFT1v3d2bWCNbRJFtD30AvbMezOz87Gem49FWgzGl5cDuIRZigpBo9IKmERgkHGtMxJJHj1tYYERKwlxezf9/hm4AoFrlIbJhdJMaM40xsBEDLnItkBYelNAOs2jK5jW/DwBnTIdgKEii1LQfIWwQVixJ+PWhBCY95StyXsORZllxEGISilRaFizrERl+NYYF0tlbRqSCX2Zk8gwo5SJJQY2KGtdldKaVKgNnYyuYMGiJyMzHirLlTH8wZU50QKT3LDSKjt0uggNeYNvKT5ZCshLaVVX5kzjwbCOcx7jolzC+yplYTi075ODflEmCUoHUAkcBDlto0jYAm4k10i/rCgaWCt/qMSu5zze7tDzvEDhBnGs6+NFWU717CFapcPM2AKzPpdtZS/z2GmHdjIYVE0XhlTnL7i55wJ971F4o4mruTfUOjdfyafvnQB8MpZbiCkd+ZQFR+8YGMzuvs3CkFpnRl3je7e2T7igJqwK6wWQlCLSPBf+6OfgTX1YRpI1TZmvZYlkZyePMmRyapm+I7a19z0aEGXmtZos4//NUKV5mcXzhckkk5Jtu2ExT3aAOT0n/oEYtNvRUCTqUgqoDsiUQql9XBV66xtjI4L86khAtmZyHperAjZcp/uznycNe+OtMwbg1f97N0NF151YGm+7s1Dj1FKPjJrwx+NWKA1pw2OdnBC8npS9oBiBCaKKwX83gkcb9mPd0R1lgufq1BmrodowbaleXUzbdlBP5HlKSJP04Fxk/sly3RQSP3hwBbWSnrybsRXW9Xt2QHodd9+3fVW0kTSt14H81emysWZnmqba2B/MWtNwb4+fK1nH2RI5fc91UdI2kdJHKk+SnsTF6E7/v07bK5NkKNdHl0cLGDj3yQsyCxcXcHi97mtLm6n6g2fxnDavs3//unPew/xvStHYSMlnc2Wd7PX73fNoZz0g9pG5oMPaegC6m6iLbWTU8dyxofavrz283bJ4Yn89MDs31BP7ax+z5bRzRf0N0bR1IA==</source>
+  </file>
+  <file path="test/lib/util/FPXTest.php" generated-path="test.lib.util.FPXTest.html" hash="eea6e8ac6d3a040969a4aec72041dbf2" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <markers>
+      <todo line="2">write FPX tests. may need to provide additional handles to do so.</todo>
+    </markers>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJwVyTEKgDAMBdDdU/wTtBcQXMS1Dg6uhQQaqE1pguLtxbe+eemlTzEeaU14hjhj2084m1vAlV80ZoIr+tBbiJGJxEVbrii5UWX7lxSmAR8dGxr5</source>
+  </file>
+  <file path="test/lib/util/k3/CommandParserTest.php" generated-path="test.lib.util.k3.CommandParserTest.html" hash="0b49d141cb742fbe529441db3471b076" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJw9kMtqwzAQRdfSVwwiUBnSeNGdmlKSEEh3gXhvFFuuRWVZ6OE2lP57R7WbhYZBupwzo+2r6x2l1fFSCeGTrVSInOUKQdt3oyB86tj0bA1dsk3Uo+XFNyWrMUWXIryA9F7eePFMifpSDd/vLsf6vKtOGxaRUhp9LVPUpvx4Kg/jMEjbnqUPymfHSRmn/AZHgMcJch49CzoTV6Efk2nrq7qLKCGMrXOdpBcwzX0zk8XCyFe4jIC3hwGwsbjK/ETJH7fV3T+xxr7jixTtd2UOehWTtzB/jww4duRqcPHGM6LAyA8e+gt7pmYK</source>
+  </file>
+  <file path="test/lib/util/k3/CommandParserTestHelper.php" generated-path="test.lib.util.k3.CommandParserTestHelper.html" hash="807bc1a1c277d2983ce65fba363ae858" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJytVF1v0zAUfU5+xcVMopFKM8Rbx4Y2qAZPTKW8IU1O4jZWHdu1nY5p2n/nxnb6MbUVIF6i6Pqce88518nrV3lrTV5wmetapx8+dk/DVi037F7JkgERvMhbx0W+fJ9/Uk1DZXVHjWVmhFhycQz9eXLz4/Y0ZDb5PjuNmEyn36YRkp4p7SxcgmQPsCdkcEbNYj0Eagx9HKQJqZgtCVxeAdnDzZh1X5jQzAC3QKFR5RLKgADBJQNt1MLQBubKgEM0lwsyTLHjmhnLlQxNz0fno3dYTxI8iXzrj6ICPCEdfbeWYK3G4aFFJwMn/HKbUb0Q33fXwrSV4GoWQLbljgVO3XnQOuIxG9S3qyILB6YNquetLDuID8tmT91hwspaAfkpETSGr28awBeJpv0wzBwhz/jIgteEaFou6YL9F193oZf3VjEt1OOf+fLCCX1ZwZKwKrSm1rKmECz06JbxqINoEi9ada8pLnoD2Mq6jlyvS3DrWAW9bQ8OuSakOKWgUMpZZ6g+ICFYouKohJue7DXE4fDAXQ3WYZTUVEPAqOZc9BKjtHSj7x/33jvdrh4vc9cxPbIKsn55GbYh4EdTKBu3sBOARStlffCicwmRhV9n5RP3fsjq+BhcKHN/OcRztiPQY5pl+I/h84H/zby9qqm9Faqg4tosBugy66Lrc1tTM4Y1pvR8nBHNH+DFk1Ps1QHe6jTDp3CA5ev7zPhJ7mJjaQxktA/qmGks4S0ZZBe/AdMzzmA=</source>
+  </file>
+  <file path="test/lib/util/TESTTest.php" generated-path="test.lib.util.TESTTest.html" hash="a9e22a9afaebcbacd3ca251eb3ac6d76" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyzsS/IKOAKcQ0OsbIqKs0LSS0u0VACkQqJxcWpRSUKJUWlqQpJ+fk5SjoKaaV5ySWZ+XkamtVcnEWpJaVFeQoQrRDFGiDFmtZctUCMx8jUioKi1OJioEHEmJmWmFOcqmBra6sAZhE2Huzi5Jz84tKiVKIsQFYAUwEyxJqLsxZqHQDO7WLK</source>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="ShippingAPI" full_name="ShippingAPI">
+    <package name="om" full_name="ShippingAPI\om"/>
+  </package>
+  <namespace name="global" full_name="global"/>
+  <deprecated count="0"/>
+</project>

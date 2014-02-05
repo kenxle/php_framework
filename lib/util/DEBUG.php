@@ -36,9 +36,9 @@ class DEBUG{
 				static::setLabelWrapperClose("");
 				static::setBodyWrapperOpen("");
 				static::setBodyWrapperClose("");
-				static::setWriteWrapper(function($string){
-					return "[".date('Y-m-d H:i:s')."] " . $string;
-				});
+//				static::setWriteWrapper(function($string){
+//					return "[".date('Y-m-d H:i:s')."] " . $string;
+//				});
 				break;
 			case "html":
 				static::setNewLine("<br />\n");
@@ -78,7 +78,7 @@ class DEBUG{
 	 * A function to wrap write output
 	 */
 	public static function setWriteWrapper($func){
-		
+		static::$writeWrapper = $func;
 	}
 	
 	/**
@@ -97,7 +97,9 @@ class DEBUG{
 		if(static::$debug){
 			// if we've got a wrapper function, call it. 
 			if(is_callable(static::$writeWrapper)){
-				$string = static::writeWrapper($string);
+//				$string = static::$writeWrapper($string);
+				$func = static::$writeWrapper;
+				$string = $func($string);
 			}
 			if(static::$buffer){
 				static::$thebuffer[] = $string; 
@@ -119,7 +121,7 @@ class DEBUG{
 		static::$buffer = $buffer;
 		
 		if(static::$buffer){
-			ini_set("memory_limit","2048M");
+			ini_set("memory_limit","2048M"); //TODO checek to see if memory limit is above this before setting
 		}
 	}
 	
@@ -138,7 +140,7 @@ class DEBUG{
 		static::$buffer = $buffer;
 		
 		if(static::$buffer){
-			ini_set("memory_limit","2048M");
+			ini_set("memory_limit","2048M");//TODO checek to see if memory limit is above this before setting
 		}
 	}
 	/**
@@ -234,6 +236,13 @@ class DEBUG{
 			
 			static::lvar_dump("$func_name rollcall: ", $val);
 		}
+	}
+	
+	public static function getBacktrace(){
+		ob_start();
+			debug_print_backtrace();
+		$backtraceStr = ob_get_clean();
+		return static::$body_wrapper_open.$backtraceStr.static::$body_wrapper_close;
 	}
 }
 

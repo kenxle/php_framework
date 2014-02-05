@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+    <title>PHP Framework</title>
+    <parser>
+        <target>docs</target>
+        <markers>
+            <item>TODO</item>
+            <item>FIXME</item>
+        </markers>
+        <extensions>
+            <extension>php</extension>
+        </extensions>
+        <visibility></visibility>
+    </parser>
+    <transformer>
+        <target>docs</target>
+    </transformer>
+    <transformations>
+        <template name="abstract" />
+    </transformations>
+    <files>
+        <directory>www</directory>
+        <directory>lib</directory>
+        <directory>config</directory>
+        <directory>test</directory>
+        <ignore>*.data.php</ignore>
+        <ignore>*.css.php</ignore>
+        <ignore>*.js.php</ignore>
+        <ignore>templates</ignore>
+    </files>
+</phpdoc>

@@ -39,16 +39,35 @@ class FPX extends DEBUG{
 	 * you'd declared them normally. Use of extract() is ok because
 	 * we define the params, and contract() is returning our defs. 
 	 * 
+	 * If required params are missing, all variables will be killed
+	 * and extract will have nothing. If extra params are included, 
+	 * they will be removed regardless of whether FPX is activate()d. 
+	 * 
+	 * FPX can always be used as a passthrough that filters out 
+	 * unwanted params. 
+	 * 
 	 * @param unknown_type $arr
 	 */
 	public static function contract($structure){
 		$required = ($structure['required'] ? $structure['required'] : array());
-		$optional = ($structure['optional'] ? $structure['optional'] : null);
+		$optional = ($structure['optional'] ? $structure['optional'] : array());
+		$all_available_params = array_merge(static::flatten_array($required, array()), static::flatten_array($optional, array()));
 		$params = static::getCallersArgs(2);
-		if(!static::$debug) return $params;//"not checking";
+		DEBUG::lvar_dump('all_available_params: ', $all_available_params);
 		if(!is_array($params)) ERROR::writeln("params not formatted as an array<br />". static::formatParamsError($required, $optional));
 //		DEBUG::lvar_dump('getCallersArgs ', $params);
 				
+		//check optionals first
+		foreach($params as $name=>$value){
+			if(!in_array($name, $all_available_params)){
+				DEBUG::writeln("unsetting $name because it is not allowed");
+				if(static::$debug) ERROR::lvar_dump("incorrect param used: '$name'. Not allowed. Try: ",$all_available_params);
+				unset($params[$name]);
+			}
+		}
+		if(!static::$debug) return $params;//"not checking";
+
+//		DEBUG::activate();
 		//required params are by group, at least one group must satisfy all their params
 		if(isset($structure['required'])){
 			$reqGroupSatisfied = false;
@@ -63,42 +82,33 @@ class FPX extends DEBUG{
 				}
 			}else{ // only one required group. simpler syntax
 				$reqGroupSatisfied = static::require_params($required, $params);
+//				DEBUG::lvar_dump("reqGroupSatisfied: ", $reqGroupSatisfied);
 				if(!$reqGroupSatisfied){
 					$missing_required_params = static::getMissingRequiredParams($required, $params);
 				}
 			}
 			if(!$reqGroupSatisfied){
-				ERROR::writeln("Missing required parameter: $missing_required_params <br />". static::formatParamsError($required, $optional));
-				return false;
+//				DEBUG::writeln("reqGroupNotSatisfied");
+//				ERROR::writeln("Missing required parameter: $missing_required_params <br />". static::formatParamsError($required, $optional));
+				ERROR::lvar_dump("Missing required parameter from: ", $required );
+				
+				return array(); 
 			}
 		}
 		
-		//add all the required params to the optionals list, and check that all included params were listed
-		$optionalAll = $optional;
-		if( is_array($required[0]) ){//alternate required gruops
-			foreach($required as $set){
-				foreach ($set as $paramName){
-					$optionalAll[] = $paramName; 
-				}
-			}
-		}else{// only one required group. simpler syntax
-			foreach ($required as $paramName){
-				$optionalAll[] = $paramName; 
-			}
-		}
-		if($structure['optional'] === null){ // if no optionals specified, allow all. 
-			$optionalGroupSatisfied = true;
-		}else{
-			$optionalGroupSatisfied = static::restrict_params_to($optionalAll, $params);
-			if(!$optionalGroupSatisfied){
-				$extra_names = static::getUnwantedParams($optionalAll, $params);
-			}
-		}
-		if(!$optionalGroupSatisfied){
-			ERROR::writeln("Param used that was not in the contract: $extra_names <br />". static::formatParamsError($required, $optional));
-			return false;
-		}
+
 		return $params;
+	}
+	
+	public static function flatten_array($array, $ret_arr){
+		foreach($array as $value){
+			if(is_array($value)){
+				$ret_arr = static::flatten_array($value, $ret_arr);
+			}else{
+				$ret_arr[] = $value;
+			}
+		}	
+		return $ret_arr;
 	}
 	
 	protected static function formatParamsError($required, $optional){
@@ -136,11 +146,12 @@ class FPX extends DEBUG{
 	
 	public static function require_params($arrOfNames, $arrOfParams){
 		$exists = true;
+//			DEBUG::lvar_dump("require_params called with names: ",  $arrOfNames );
+//			DEBUG::lvar_dump("and params: ",  $arrOfParams );
 		foreach($arrOfNames as $name){
-//			DEBUG::writeln("arraykeyexists called with name $name");
-//			DEBUG::lvar_dump("and array: ",  $arrOfParams );
 			$exists = array_key_exists($name, $arrOfParams) && $exists;
 		}
+//		DEBUG::lvar_dump("returning: ", $exists);
 		return $exists;
 	}
 	

@@ -1,0 +1,49 @@
+#!/usr/bin/php
+<?php
+include "config/config.inc.php";
+include "lib/util/k3/CommandParser.php";
+//include "lib/util/DEBUG.php";
+//include "lib/util/TEST.php";
+//include "lib/util/ERROR.php";
+
+ERROR::activate();
+ERROR::setStyle("console");
+
+$opts = new CommandParser($argv, array(
+	"desc" => "k3 is a command line utility for managing projects ".
+		"built in the k3 framework.",
+
+	"version" => "0.0.1",
+		
+	"commands" => array(
+
+		"test" => array(
+			"help" => "Help text for test command",
+			"desc" => "Run the test suite for this app",
+			"options" => array(),
+			"run" => function($args){
+				TEST::activate();
+				TEST::setStyle("console");
+				TEST::runTestsIn(realpath(__DIR__ . "/test"));
+			}
+		)
+
+	),
+	
+	"options" => array(
+		"v" => array(
+			"also" => "verbose",
+			"type" => "switch",
+			"desc" => "Run in debug mode"
+			
+		)
+	)
+));
+
+if($opts->hasGlobalArg("v")){
+	echo "\nVERBOSE MODE\n";
+	DEBUG::activate();
+	DEBUG::setStyle("console");
+}
+
+$opts->run();
