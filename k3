@@ -24,7 +24,18 @@ $opts = new CommandParser($argv, array(
 			"run" => function($args){
 				TEST::activate();
 				TEST::setStyle("console");
-				TEST::runTestsIn(realpath(__DIR__ . "/test"));
+				TEST::runTestsIn(realpath(__DIR__ . "/zcruft/old_test"));
+				//$path = array();
+				//exec("whereis phpunit | cut -d' ' -f2", $path);
+				
+				//echo $path[0]."/phpunit.php";
+				//$output = array();
+				//echo 'phpunit '.BASE_PATH."test\n\n";
+				//exec('phpunit '.BASE_PATH."test", $output);
+				//foreach($output as $line){
+				//	echo $line;
+				//}
+				
 			}
 		)
 

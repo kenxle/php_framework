@@ -16,6 +16,7 @@ $GLOBALS ['autoload_paths'] = array (
 	BASE_PATH. "/lib/util/",
 	BASE_PATH. "/lib/auth/",
 	BASE_PATH. "/lib/om/",
+	BASE_PATH. "/lib/util/k3",
 	//add new lib paths here
 );
 

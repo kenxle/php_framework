@@ -22,10 +22,8 @@ class ERROR extends DEBUG{
 	static $body_wrapper_close = "</pre>";
 	
 	public static function writeln($string, $e=null){
-		parent::write($string . 
-				static::$newline . 
-				static::getBacktrace() . 
-				static::$newline);
+		static::write($string);
+		parent::write(static::$newline);
 	}
 	public static function write($string){
 		parent::write($string . 

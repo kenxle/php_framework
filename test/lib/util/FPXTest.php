@@ -1,200 +1,234 @@
 <?php
-ERROR::activate(true); //buffer errors so we can check for them
+require_once realpath(__DIR__ . "/../../../config/config.inc.php");
 
-TEST::runTest("Test extracted var available", function(){
-	FPX::activate();
-	$func = function($pArr){
-		extract(FPX::contract(array(
-			"required" => array("varname"),
-			"optional" => array()
-		)));
-		return TEST::assert_not_empty($varname);
-	};
-	
-	return $func(array(
-		"varname" => "hello"
-	));
-});
 
-TEST::runTest("Test FPX is conforming passthrough when inactive", function(){
-	FPX::deactivate();
-	ERROR::clearBuffer();
-	
-	$func = function($pArr){
-		extract(FPX::contract(array(
-			"required" => array("varname"),
-			"optional" => array()
-		)));
-		return TEST::assert_not_empty($varname)
-				&& TEST::assert_empty($xxx)
-				&& TEST::assert_empty(ERROR::$thebuffer);
-	};
-	
-	return $func(array(
-		"varname" => "hello",
-		"xxx" => "hello"
-	));
-});
+class FPXTest extends PHPUnit_Framework_TestCase{
 
-TEST::runTest("Test for error on bad var", function(){
-	FPX::activate();
-	ERROR::clearBuffer();
-	
-	$func = function($pArr){
-		extract(FPX::contract(array(
-			"required" => array("varname"),
-			"optional" => array("aname")
-		)));
-		return TEST::assert_not_empty(ERROR::$thebuffer) 
-				&& TEST::assert_empty($other); // should have thrown an error and thrown out the offending param
-	};
-	
-	return $func(array(
-		"varname" => "hello",
-		"other" => "ho"
-	));
-});
+	public function setUp(){
+			
+		ERROR::activate(true); //buffer errors so we can check for them
+		ERROR::setStyle("console");
+	}
 
-TEST::runTest("Test error for unwanted var with two req groups", function(){
-	FPX::activate();
-	ERROR::clearBuffer();
-	
-	$func = function($pArr){
-		extract(FPX::contract(array(
-			"required" => array(array("varname"), array("other_required")),
-			"optional" => array("dname")
-		)));
-		return TEST::assert_not_empty(ERROR::$thebuffer) 
-				&& TEST::assert_empty($other)
-				&& TEST::assert_not_empty($varname);
-	};
-	
-	return $func(array(
-		"varname" => "hello",
-		"other" => "ho"
-	));
-});
-TEST::runTest("Test error when missing full required group of two", function(){
-	FPX::activate();
-	ERROR::clearBuffer();
-	
-	$func = function($pArr){
-		extract(FPX::contract(array(
-			"required" => array(array("varname", "other"), array("other_required")),
-			"optional" => array("dname")
-		)));
-		return TEST::assert_equal("Missing required parameter", substr(ERROR::$thebuffer[0], 0, 26)) 
-				&& TEST::assert_empty($varname); //if required params are gone, nothing is returned
-	};
-	
-	ERROR::activate(true);
-	return $func(array(
-		"varname" => "hello",
-	));
-});
+	public function tearDown(){	
+		ERROR::activate();
+	}
 
-TEST::runTest("Test error when missing full required group of one", function(){
-	FPX::activate();
-	ERROR::clearBuffer();
-	
-	$func = function($pArr){
-		extract(FPX::contract(array(
-			"required" => array("varname", "other"),
-			"optional" => array("dname")
-		)));
-		return TEST::assert_equal("Missing required parameter", substr(ERROR::$thebuffer[0], 0, 26)) 
-				&& TEST::assert_empty($varname);
-	};
-	
-	return $func(array(
-		"varname" => "hello",
-	));
-});
-TEST::runTest("Test only one required group needed", function(){
-	FPX::activate();
-	ERROR::clearBuffer();
-	
-	$func = function($pArr){
-		extract(FPX::contract(array(
-			"required" => array(array("varname", "other"), array("other_required")),
-			"optional" => array("dname")
-		)));
-		return TEST::assert_empty(ERROR::$thebuffer) 
-				&& TEST::assert_not_empty($other)
-				&& TEST::assert_not_empty($varname);
-	};
-	
-	return $func(array(
-		"varname" => "hello",
-		"other" => "ho"
-	));
-});
+	public function testExtractedVarAvailable(){
+		FPX::activate();
+		$t = $this;
+		$func = function($pArr) use (&$t){
+			extract(FPX::contract(array(
+				"required" => array("varname"),
+				"optional" => array(
+					"this",
+					"is",
+					"an",
+					"optional",
+					"list",
+					"of",
+					"variables"
+				)
+			)));
+			
+			$t->assertNotEmpty($varname);
+		};
+		
+		$func(array(
+			"varname" => "hello"
+		));
+	}
 
-TEST::runTest("Test partial on one required, full on other", function(){
-	FPX::activate();
-	ERROR::clearBuffer();
-	
-	$func = function($pArr){
-		extract(FPX::contract(array(
-			"required" => array(array("varname", "other"), array("other_required")),
-			"optional" => array("dname")
-		)));
-		return TEST::assert_empty(ERROR::$thebuffer) 
-				&& TEST::assert_not_empty($other)
-				&& TEST::assert_not_empty($other_required)
-				&& TEST::assert_not_empty($dname);
-	};
-	
-	return $func(array(
-		"other_required" => "hello",
-		"other" => "ho",
-		"dname" => "yo"
-	));
-});
+	public function testFPXIsConformingPassthroughWhenInactive(){
+		FPX::deactivate();
+		ERROR::clearBuffer();
+		
+		$t = $this;
+		$func = function($pArr) use (&$t){
+			extract(FPX::contract(array(
+				"required" => array("varname"),
+				"optional" => array()
+			)));
+			$t->assertNotEmpty($varname);
+			$t->assertEmpty($xxx);
+			$t->assertEmpty(ERROR::$thebuffer);
+		};
+		
+		$func(array(
+			"varname" => "hello",
+			"xxx" => "hello"
+		));
+	}
 
-TEST::runTest("Test optional only", function(){
-	FPX::activate();
-	ERROR::clearBuffer();
-	
-	$func = function($pArr){
-		extract(FPX::contract(array(
-			"optional" => array("dname", "ename")
-		)));
-		return TEST::assert_empty(ERROR::$thebuffer); 
-	};
-	
-	return $func(array( //optional included
-		"dname" => "yo"
-	))
-	&& $func(array()); //optional excluded
-});
+	public function testForErrorOnBadVar(){
+		FPX::activate();
+		ERROR::clearBuffer();
+		
+		$t = $this;
+		$func = function($pArr) use (&$t){
+			extract(FPX::contract(array(
+				"required" => array("varname"),
+				"optional" => array("aname")
+			)));
+			$t->assertNotEmpty(ERROR::$thebuffer);
+			$t->assertEmpty($other); // should have thrown an error and thrown out the offending param
+		};
+		
+		$func(array(
+			"varname" => "hello",
+			"other" => "ho"
+		));
+	}
 
-TEST::runTest("Test required only", function(){
-	FPX::activate();
-	ERROR::clearBuffer();
+	public function testErrorForUnwantedVarWithTwoReqGroups(){
+		FPX::activate();
+		ERROR::clearBuffer();
+		
+		$t = $this;
+		$func = function($pArr) use (&$t){
+			extract(FPX::contract(array(
+				"required" => array(array("varname"), array("other_required")),
+				"optional" => array("dname")
+			)));
+			$t->assertNotEmpty(ERROR::$thebuffer); 
+			$t->assertEmpty($other);
+			$t->assertNotEmpty($varname);
+		};
+		
+		$func(array(
+			"varname" => "hello",
+			"other" => "ho"
+		));
+	}
 	
-	$func = function($pArr){
-		extract(FPX::contract(array(
-			"required" => array("dname", "ename")
-		)));
-		return TEST::assert_empty(ERROR::$thebuffer) 
-				&& TEST::assert_not_empty($dname);
-	};
-	//required success
-	$res =  $func(array(
-		"dname" => "yo",
-		"ename" => "erin"
-	));
-	
-	// required failure
-	$func = function($pArr){
-		extract(FPX::contract(array(
-			"required" => array("dname", "ename")
-		)));
-		return TEST::assert_not_empty(ERROR::$thebuffer) ;
-	};
-	
-	return $res && $func(array());
-});
+	public function testErrorWhenMissingFullRequiredGroupOfTwo(){
+		FPX::activate();
+		ERROR::clearBuffer();
+		
+		$t = $this;
+		$func = function($pArr) use (&$t){
+			extract(FPX::contract(array(
+				"required" => array(array("varname", "other"), array("other_required")),
+				"optional" => array("dname")
+			)));
+			$t->assertEquals("Missing required parameter", substr(ERROR::$thebuffer[0], 0, 26)); 
+			$t->assertEmpty($varname); //if required params are gone, nothing is returned
+		};
+		
+		ERROR::activate(true);
+		$func(array(
+			"varname" => "hello",
+		));
+	}
 
-ERROR::activate();
+	public function testErrorWhenMissingFullRequiredGroupOfOne(){
+		FPX::activate();
+		ERROR::clearBuffer();
+		
+		$t = $this;
+		$func = function($pArr) use (&$t){
+			extract(FPX::contract(array(
+				"required" => array("varname", "other"),
+				"optional" => array("dname")
+			)));
+			$t->assertEquals("Missing required parameter", substr(ERROR::$thebuffer[0], 0, 26)); 
+			$t->assertEmpty($varname);
+		};
+		
+		$func(array(
+			"varname" => "hello",
+		));
+	}
+	
+	public function testOnlyOneRequiredGroupNeeded(){
+		FPX::activate();
+		ERROR::clearBuffer();
+		
+		$t = $this;
+		$func = function($pArr) use (&$t){
+			extract(FPX::contract(array(
+				"required" => array(array("varname", "other"), array("other_required")),
+				"optional" => array("dname")
+			)));
+			$t->assertEmpty(ERROR::$thebuffer);
+			$t->assertNotEmpty($other);
+			$t->assertNotEmpty($varname);
+		};
+		
+		$func(array(
+			"varname" => "hello",
+			"other" => "ho"
+		));
+	}
+
+	public function testPartialOnOneRequiredFullOnOther(){
+		FPX::activate();
+		ERROR::clearBuffer();
+		
+		$t = $this;
+		$func = function($pArr) use (&$t){
+			extract(FPX::contract(array(
+				"required" => array(array("varname", "other"), array("other_required")),
+				"optional" => array("dname")
+			)));
+			$t->assertEmpty(ERROR::$thebuffer); 
+			$t->assertNotEmpty($other);
+			$t->assertNotEmpty($other_required);
+			$t->assertNotEmpty($dname);
+		};
+		
+		$func(array(
+			"other_required" => "hello",
+			"other" => "ho",
+			"dname" => "yo"
+		));
+	}
+
+	public function testOptionalOnly(){
+		FPX::activate();
+		ERROR::clearBuffer();
+		
+		$t = $this;
+		$func = function($pArr) use (&$t){
+			extract(FPX::contract(array(
+				"optional" => array("dname", "ename")
+			)));
+			$t->assertEmpty(ERROR::$thebuffer); 
+		};
+		
+		$func(array( //optional included
+			"dname" => "yo"
+		));
+		$func(array()); //optional excluded
+	}
+
+	public function testRequiredOnly(){
+		FPX::activate();
+		ERROR::clearBuffer();
+		
+		$t = $this;
+		$func = function($pArr) use (&$t){
+			extract(FPX::contract(array(
+				"required" => array("dname", "ename")
+			)));
+			$t->assertEmpty(ERROR::$thebuffer) ;
+			$t->assertEquals($dname, "yo");
+		};
+		//required success
+		$func(array(
+			"dname" => "yo",
+			"ename" => "erin"
+		));
+		
+		// required failure
+		$t = $this;
+		$func = function($pArr) use (&$t){
+			extract(FPX::contract(array(
+				"required" => array("dname", "ename")
+			)));
+			$t->assertNotEmpty(ERROR::$thebuffer) ;
+		};
+		
+		$func(array());
+	}
+}
