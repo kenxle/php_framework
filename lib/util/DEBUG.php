@@ -160,14 +160,23 @@ class DEBUG{
 		}
 	}
 	
-	/**
+/**
 	 * same as formatted_var_dump, only it puts a bold label in front
 	 */
 	public static function labelled_var_dump($label, $var, $func=null){
 		if(static::$debug){
 			$label = static::$label_wrapper_open.$label.static::$label_wrapper_close;
-			static::write($label);
-			static::formatted_var_dump($var, $func);
+			ob_start();
+				echo $label;
+				var_dump($var);
+			$val = ob_get_clean();
+			
+			if($func) $val = $func($val);
+			$val =  static::$body_wrapper_open.
+					$val.
+					static::$body_wrapper_close;
+			
+			static::write($val);
 		}
 	}
 	

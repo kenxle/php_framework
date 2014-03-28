@@ -32,6 +32,10 @@ class FPXTest extends PHPUnit_Framework_TestCase{
 			)));
 			
 			$t->assertNotEmpty($varname);
+			$t->assertEmpty($list);
+			$t->assertTrue(!isset($of));
+			$t->assertTrue(!isset($list));
+			$t->assertTrue(isset($varname));
 		};
 		
 		$func(array(
@@ -230,5 +234,64 @@ class FPXTest extends PHPUnit_Framework_TestCase{
 		};
 		
 		$func(array());
+	}
+	
+	
+	public function testDefaulting(){
+		// override not set
+		FPX::pdefault($myvar, "myvalue");
+		$this->assertEquals($myvar, "myvalue");
+	}
+	
+	public function testNoOverrideEmpty(){
+		// do not override empty
+		$emptyArr = array();
+		FPX::pdefault($emptyArr, 1);
+		$this->assertEquals(array(), $emptyArr);
+	}
+	
+	public function testOverrideEmpty(){
+		// override empty
+		$emptyArr = array();
+		FPX::pdefault($emptyArr, 1, "empty");
+		$this->assertEquals(1, $emptyArr);
+	}
+	
+	public function testOverrideFalsy(){
+		// override falsy
+		$bvar = "";
+		FPX::pdefault($bvar, "bvalue", "falsy");
+		$this->assertEquals($bvar, "bvalue");
+	}
+	
+	public function testNoOverrideWhenSet(){
+		// not overridden when set
+		$avar = "avalue";
+		FPX::pdefault($avar, array());
+		$this->assertEquals($avar, "avalue");
+	}
+	
+
+	public function testPDefaultCallable(){
+		$array_wrap = function($param){
+			if($param && !is_array($param)) $param = array($param);
+			return $param;
+		};
+		
+		$to = "hey";
+		$to = FPX::pdefault($to, array(), $array_wrap);
+		$this->assertEquals(array("hey"), $to);
+		
+		
+	}
+	
+	
+	public function testPDefaultByReference(){
+		FPX::pdefault($to, "me"); // don't assign. it's passed by reference
+		$this->assertEquals("me", $to);
+		
+		// now it's set, so this shouldn't change it
+		FPX::pdefault($to, "you");
+		$this->assertEquals("me", $to);
 	}
 }

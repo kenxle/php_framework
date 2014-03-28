@@ -53,7 +53,8 @@ class FPX extends DEBUG{
 		$optional = ($structure['optional'] ? $structure['optional'] : array());
 		$all_available_params = array_merge(static::flatten_array($required, array()), static::flatten_array($optional, array()));
 		$params = static::getCallersArgs(2);
-		DEBUG::lvar_dump('all_available_params: ', $all_available_params);
+//		DEBUG::lvar_dump('all_available_params: ', $all_available_params);
+		if(empty($params) && empty($structure['required'])) return array(); // if nothing is passed in and nothing is required, return. 
 		if(!is_array($params)) ERROR::writeln("params not formatted as an array<br />". static::formatParamsError($required, $optional));
 //		DEBUG::lvar_dump('getCallersArgs ', $params);
 				
@@ -116,7 +117,10 @@ class FPX extends DEBUG{
 		
 		$reqStr = "Required Params: ". implode(" || ", $required);
 		$optStr = (!empty($optional) ? "Optional Params: ". implode(", ", $optional) : "");
-		$yourStr = "Your Params: ". implode(", ", array_keys(static::getCallersArgs(3)));
+		
+		$args = static::getCallersArgs(3);
+		$params = $args? array_keys($args) : array();
+		$yourStr = "Your Params: ". implode(", ", $params);
 		$errorStr = "<b>$funcName</b> Usage <br /> $reqStr <br /> $optStr <br /> $yourStr ";
 		return $errorStr;
 	}
@@ -183,19 +187,23 @@ class FPX extends DEBUG{
 		return implode(", ", $extra);
 	}
 	
-	public static function pdefault(&$param, $default, $replacement_type="full"){
+	public static function pdefault(&$param, $default, $replacement_type="isset"){
 		switch ($replacement_type){
 			case "isset": // will only replace if it's not set at all
 				$replace = !isset($param);
 				break;
-			case "full": // will replace variables that are set but falsy
+			case "falsy": // will replace variables that are set but falsy
 				$replace = !$param;
 				break;
 			case "empty": 
 				$replace = empty($param);
 				break;
-			default: // use replacement_type as a function name
-				$replace = $replacement_type($param);
+			default: // use replacement_type as a function 
+				if(is_callable($replacement_type)){
+					$param = $replacement_type($param);
+				}else{
+					$replace = !isset($param);
+				}
 		}
 
 		if($replace){
@@ -203,6 +211,7 @@ class FPX extends DEBUG{
 			DEBUG::writeln($calling_func. ": defaulting '$param' to '$default'");
 			$param = $default;
 		}
+		return $param;
 	}
 	
 	

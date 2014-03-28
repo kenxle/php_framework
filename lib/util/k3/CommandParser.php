@@ -47,11 +47,25 @@ class CommandParser{
 	var $command_params = array(); // params without flags
 	var $command;
 	
+	/**
+	 * Parse and make vars available
+	 * @param unknown_type $argv
+	 * @param unknown_type $config
+	 */
 	public function __construct($argv, $config){
 		$this->config = $config;
 		$this->program_name = array_shift($argv);
 		$this->args = $argv;
 		$args = $this->args; //duplicate array
+		
+		if(!isset($this->config['options']['h'])){
+			$this->config['options']['h'] = array(
+				"also" => "help",
+				"type" => "switch",
+				"desc" => "Show this help message",
+			);
+			
+		}
 		
 		$shortopts = "";
 		$longopts = array();
@@ -74,27 +88,29 @@ class CommandParser{
 					if($details['also']) $longopts[$short."::"] = $details['also']."::";
 			}
 		}
-		foreach($this->config['commands'] as $short => $command_details){
-			foreach($command_details['options'] as $short => $details){
-				switch($details['type']){
-					case "switch":
-						$shortopts .= $short;
-						if($details['also']) $longopts[$short] = $details['also'];
-						break;
-					case "required_param":
-						$shortopts .= $short.":";
-						if($details['also']) $longopts[$short.":"] = $details['also'].":";
-						break;
-					case "optional_param":
-						$shortopts .= $short."::";
-						if($details['also']) $longopts[$short."::"] = $details['also']."::";
-						break;
-					default: //default to optional_param
-						$shortopts .= $short."::";
-						if($details['also']) $longopts[$short."::"] = $details['also']."::";
+		if($this->config['commands']){
+			foreach($this->config['commands'] as $short => $command_details){
+				foreach($command_details['options'] as $short => $details){
+					switch($details['type']){
+						case "switch":
+							$shortopts .= $short;
+							if($details['also']) $longopts[$short] = $details['also'];
+							break;
+						case "required_param":
+							$shortopts .= $short.":";
+							if($details['also']) $longopts[$short.":"] = $details['also'].":";
+							break;
+						case "optional_param":
+							$shortopts .= $short."::";
+							if($details['also']) $longopts[$short."::"] = $details['also']."::";
+							break;
+						default: //default to optional_param
+							$shortopts .= $short."::";
+							if($details['also']) $longopts[$short."::"] = $details['also']."::";
+					}
 				}
-			}
-		}
+			}	
+		}	
 		$options = getopt($shortopts, $longopts);
 //		DEBUG::activate();
 		DEBUG::setStyle("console");
@@ -109,7 +125,7 @@ class CommandParser{
 			if(array_key_exists($details['also'], $options)){
 				$this->global_args[$details['also']] = $options[$details['also']];
 			}
-		}
+		} //TODO make a var show up in both long and short format
 		
 		// this doesn't work because getopt is hacking off everything after the command
 //		// go through command options and see if any are present in command line args
@@ -191,26 +207,46 @@ class CommandParser{
 	}
 	
 	
-	
+	/**
+	 * Run any included commands
+	 * 
+	 */
 	public function run(){
-		if( empty($this->args) ||
-				$this->command == "help" ||
-				empty($this->command)){
+		if( (empty($this->args) && !empty($this->config['commands'])) || // no args and commands required
+				$this->command == "help" || // help requested
+				isset($this->global_args['h']) || // help requested
+				isset($this->global_args['help']) || // help requested
+				(empty($this->command) && !empty($this->config['commands'])) // no command and command required
+		){
 			$this->usage();
-			return 0;
+			exit(0);
 		}
 		
-		$func = $this->config['commands'][$this->command]['run'];
-		if(is_callable($func)){
-			$func($this->command_args);
-		}else{
-			ERROR::lvar_dump("Command '{$this->command}' contains a function that isn't a callable", $func);
+		if(!empty($this->config['commands']) && !empty($this->command)){
+			$func = $this->config['commands'][$this->command]['run'];
+			if(is_callable($func)){
+				$func($this->command_args);
+			}else{
+				ERROR::lvar_dump("Command '{$this->command}' contains a function that isn't a callable", $func);
+			}
 		}
 		
-		
-		
+		// if options set up a run, then run it
+		foreach($this->config['options'] as $option=>$config){
+			if(isset($this->global_args[$option])){
+				$func = $config['run'];
+				if($func && is_callable($func)){
+					$func();
+				}
+			}
+		}
 	}
 	
+	
+	/**
+	 * Print out the help message
+	 * 
+	 */
 	public function usage(){
 		echo "\nNAME";
 		echo "\n\t$this->program_name - ". $this->config['desc'];
@@ -221,19 +257,30 @@ class CommandParser{
 			echo "\n";
 		}
 		echo "\nSYNOPSIS";
-		echo "\n\t $this->program_name [global options] command [command options] [arguments...]";
+		$synopsis = "\n\t $this->program_name ";
+		$synopsis .= empty($this->config['commands']) ? "[options] " : "[global options] ";
+		$synopsis .= !empty($this->config['commands']) ? "command [command options] [arguments...]" : ""; 
+		
+		echo $synopsis;
 		echo "\n";
-		echo "\nGLOBAL OPTIONS";
-		echo "\n\t-h, --help \t- Show this message";
+		
+		$option_title = "\n";
+		$option_title .= empty($this->config['commands']) ? "OPTIONS" : "GLOBAL OPTIONS";
+		echo $option_title;
 		foreach($this->config['options'] as $option=>$config){
 			$dashes = strlen($option) >1 ? "--" : "-"; //TODO add output for new "also" attribute, the long form
-			echo "\n\t$dashes$option \t\t- {$config['desc']}";
+			$str = "\n\t$dashes$option";
+			$str .= $config['also'] ? ", --{$config['also']} " : '';
+			$str .= " \t\t- {$config['desc']}";
+			echo $str;
 		}
-		echo "\n";
-		echo "\nCOMMANDS";
-		echo "\n\thelp \tShow a list of commands or help for one command";
-		foreach($this->config['commands'] as $command=>$config){
-			echo "\n\t$command \t{$config['desc']}";
+		if(!empty($this->config['commands'])){
+			echo "\n";
+			echo "\nCOMMANDS";
+			echo "\n\thelp \tShow a list of commands or help for one command";
+			foreach($this->config['commands'] as $command=>$config){
+				echo "\n\t$command \t{$config['desc']}";
+			}
 		}
 		echo "\n";
 	}
@@ -252,6 +299,10 @@ class CommandParser{
 	
 	public function getCommandArg($str){
 		return $this->command_args[$str];
+	}
+	
+	public function get($str){
+		return $this->getGlobalArg($str);
 	}
 }
 
