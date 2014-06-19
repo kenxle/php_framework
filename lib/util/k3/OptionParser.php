@@ -1,5 +1,34 @@
 <?php 
 
+/**
+How to do options with defaults cleanly/functionally.
+$opts = new OptionParser(array(
+  "description" => "Change the entity perspective for an entity",
+  "version" => "0.0.1",
+));
+
+$entity = 0; //default
+$opts->addOption( array(
+  "short" => "e",
+  "long" => "entity",
+  "type" => "required_arg",
+  "desc" => "Required. The entity for which you will supply a new perspective. ",
+  "run" => function($var) use (&$entity){
+    $entity = $var;
+  }
+));
+
+$opts->addOption(array(
+  "short" => "v",
+  "long" => "verbose",
+  "type" => "switch",
+  "desc" => "Turn on debug output for this command. ",
+  "run" => function($var){
+    DEBUG::setStyle("console");
+    DEBUG::activate();
+  }
+));
+*/
 class OptionParser{
 	var $options = array();
 	var $args = array();
