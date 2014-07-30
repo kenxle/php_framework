@@ -165,6 +165,27 @@ class OptionParser{
 		return isset($this->args[$str]);
 	}
 	
+	
+	/**
+	 * Prompt the user for input without displaying the input, as 
+	 * for a password. 
+	 * 
+	 * Only works on unix/linux/mac with bash. 
+	 */
+	function prompt_silent($prompt = "Enter Password:") {
+		$command = "/usr/bin/env bash -c 'echo OK'";
+		if (rtrim(shell_exec($command)) !== 'OK') {
+			trigger_error("Can't invoke bash");
+			return false;
+		}
+		$command = "/usr/bin/env bash -c 'read -s -p \""
+			. addslashes($prompt)
+			. "\" mypassword && echo \$mypassword'";
+		$password = rtrim(shell_exec($command));
+		echo "\n";
+		return $password;
+	}
+	
 	/**
 	 * Print out the help message
 	 * 
